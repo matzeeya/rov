@@ -716,3 +716,16 @@ ul.social-list li a:hover, ul.social-list li a:focus{
 .markFont{
 	font-family: 'Kanit', sans-serif;
 }
+
+.empty-carousel{
+	height: 90px;
+}
+
+.padding-top-40{
+	height: 40px;
+}
+
+.padding-top-bottom-20{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
