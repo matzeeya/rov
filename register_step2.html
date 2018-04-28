@@ -19,7 +19,7 @@
     
     <link rel="stylesheet" href="css/stellar.css">
     <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/semantic.css">
-    
+<!--    <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/UI-Modal/modal.min.css">-->
     
     
   </head>
@@ -79,18 +79,18 @@
           <div class="col-md-12">
           
           <div class="ui steps">
-			  <div class="active step">
+			  <div class="step disabled">
 				<i class="ion-android-lock" style="font-size: 32px;"></i>&nbsp;&nbsp;
 				<div class="content">
 					<div class="title"><span class="markFont">นโยบายข้อมูลส่วนบุคคล</span></div>
 				  <div class="description">โปรดอ่านและยอมรับเงื่อนไข</div>
 				</div>
 			  </div>
-			  <div class="step disabled">
+			  <div class="active step">
 				<i class="ion-compose" style="font-size: 32px;"></i>&nbsp;&nbsp;
 				<div class="content">
 				  <div class="title"><span class="markFont">ลงทะเบียนทีม</span></div>
-				  <div class="description"> </div>
+				  <div class="description"></div>
 				</div>
 			  </div>
 			  <div class="disabled step">
@@ -116,50 +116,75 @@
     
    <div class="container padding-top-bottom-20">
        <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-1">
+		   </div>
+          <div class="col-md-10">
           
-          <h2 class="ui header">
-		  
-		  <div class="content">
-			<span class="markFont">นโยบายข้อมูลส่วนบุคคล</span>
-		  </div>
-		  </h2>
-          
-          <div class="ui floating message">
-			  <p>&nbsp;&nbsp;&nbsp;&nbsp;ข้อมูลส่วนบุคคลของคุณเป็นสิ่งสำคัญต่อการจัดกิจกรรมในครั้งนี้ เราได้จัดทำคำแถลงเรื่องความเป็นส่วนตัวนี้ขึ้นเพื่อให้คุณทราบถึงวิธีการรวบรวม การใช้งาน การแชร์และการจัดเก็บข้อมูลส่วนบุคคลของคุณ</p>
-			<h4 class="ui header">
-			  <span class="markFont">เมื่อคุณสร้างบัญชี</span>
-			  <div class="sub header"><span class="markFont">เมื่อคุณสร้างบัญชีในเว็บไซต์ เราขอให้คุณให้ข้อมูลส่วนบุคคลรวมถึงชื่อและที่อยู่อีเมลของคุณ คุณไม่จำเป็นต้องระบุชื่อเต็มของคุณ แต่สามารถทำได้หากคุณต้องการ คุณจะใช้ที่อยู่อีเมลและรหัสผ่านเพื่อเข้าสู่บัญชีของคุณ บัญชีของคุณจะได้รับการป้องกันด้วยรหัสผ่าน เราจะใช้ชื่อของคุณเพื่อช่วยในการยืนยันบัญชีของคุณ เมื่อคุณโทรติดต่อฝ่ายจัดกิจกรรมการแข่งขันครั้งนี้</span></div>
-			</h4>
-			<p></p>
-			<h4 class="ui header">
-			  <span class="markFont">เมื่อคุณลงชื่อเข้าใช้งานบัญชีเว็บไซต์นี้ด้วยข้อมูลจากโซเชียลมีเดีย</span>
-			  <div class="sub header"><span class="markFont">คุณสามารถเลือกที่จะเข้าสู่บัญชีเว็บไซต์นี้ โดยใช้ข้อมูลการเข้าสู่ระบบของโซเชียลมีเดีย (เช่น ข้อมูลการเข้าสู่ระบบ Facebook ของคุณ) หากคุณเลือกที่จะทำเช่นนี้เมื่อคุณลงชื่อเข้าใช้บัญชีของคุณโดยใช้ข้อมูลการเข้าสู่ระบบของโซเชียลมีเดียเป็นครั้งแรก คุณจะถูกถามว่าคุณยอมรับว่าผู้ให้บริการโซเชียลมีเดียอาจให้ข้อมูลบางอย่างแก่ เว็บไซต์นี้ เช่น ชื่อ ที่อยู่อีเมลของคุณ รูปภาพโปรไฟล์ การโพสต์ข้อความ ความคิดเห็นและข้อมูลอื่นๆ ที่เชื่อมโยงกับบัญชีโซเชียลมีเดียของคุณ</span></div>
-			</h4>
-	  
-		  </div>
-		  
-		  
+			  <h2 class="ui header">
+			  <div class="content">
+				<span class="markFont">ลงทะเบียนทีม</span>
+			  </div>
+			  </h2>
+			
+			 <div class="row">
+				  <div class="col-sm-12">
+
+					  <div class="ui floating message">
+						<button class="ui green button">ลงทะเบียน ผ่าน e-mail</button>
+				        <span class="markFont">หรือ</span>
+					    <button class="ui facebook button">
+						  <i class="facebook icon"></i>
+						  เชื่อมต่อ กับ Facebook
+						</button>
+						
+						<button class="ui google plus button">
+						  <i class="google plus icon"></i>
+						  เชื่อมต่อ กับ Google Plus
+						</button>
+					  </div>
+				  </div>
+		      </div>
+		    </div>
+		   <div class="col-md-1">
+		   </div>
+		   
+	   </div>
 	   
-	   
+	   <div class="row">
+          <div class="col-md-1">
+		   </div>
+           <div class="col-md-10">
+			   <div class="ui floating message">
+					 <form class="ui form">
+					  <div class="field">
+						<label>First Name</label>
+						<input type="text" name="first-name" placeholder="First Name">
+					  </div>
+					  <div class="field">
+						<label>Last Name</label>
+						<input type="text" name="last-name" placeholder="Last Name">
+					  </div>
+					  <div class="field">
+						<div class="ui checkbox">
+						  <input type="checkbox" tabindex="0" class="hidden">
+						  <label>I agree to the Terms and Conditions</label>
+						</div>
+					  </div>
+					  <button class="ui button" type="submit">Submit</button>
+					</form>
+			   </div>
+		    </div>
+		   <div class="col-md-1">
 		   </div>
 	   </div>
     </div>
     
-    <div class="container padding-bottom-30">
-       <div class="row">
-          <div class="col-md-12" style="text-align: center">
-          
-          <div class="ui buttons">
-			  <button class="ui button">ปฏิเสธ</button>
-			  <div class="or"></div>
-			  <button class="ui positive button">ยอมรับ</button>
-		  </div>
-		   </div>
-	   </div>
-    </div>
+    
    
     </section>
+    
+    
+
      
      
       <footer class="padding-top-30">
@@ -242,12 +267,20 @@
 
     <script src="js/stellar/jquery.stellar.min.js"></script>
     <script src="js/Semantic-UI-CSS/semantic.min.js"></script>
-    
-	   <script>
+<!--    <script src="js/Semantic-UI-CSS/UI-Modal/modal.min.js"></script>-->
 
-	  </script>
 	  
 	  <script>
+/*		$( "#btnOK" ).click(function() {
+			$(".test").modal('show');
+		});
+		  
+		$(".test").modal({
+			closable: true,
+			autofocus: true,
+			offset:50
+		});
+		  */
 
 	 </script>
 
