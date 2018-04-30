@@ -155,77 +155,54 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="#">
-                      
+                   
+                   <form class="ui form">
+                    
+					 <div class="field">
+							 <label>ชื่อทีม</label>
+							 <input type="text" name="teamname" id="teamname"  value="" />
+					 </div>
 
-                        <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">ชื่อทีม</label>
+					
+					 <div class="two fields">
+						 <div class="field">
+							 <label>ชื่อ - นามสกุล ตัวแทนทีม</label>
+							 <input type="text" name="managername" id="managername"  value="" />
+						 </div>
+						 <div class="field">
+							 <label>เบอร์โทรศัพท์</label>
+							 <input type="text" name="mobilephone" id="mobilephone"  value="" />
+						 </div>
+					 </div>
+					 
+						 <div class="field">
+							 <label>E-Mail</label>
+							 <input type="text" name="email" id="email"  value="" />
+						 </div>
+					<div class="two fields">
+						 <div class="field">
+							 <label>รหัสผ่าน</label>
+							 <input type="text" name="password" id="password"  value="" />
+						 </div>
+						 <div class="field">
+							 <label>ยืนยันรหัสผ่านอีกครั้ง</label>
+							 <input type="text" name="password-confirm" id="password-confirm"  value="" />
+						 </div>
+					 </div>
 
-                            <div class="col-md-6">
-                                <input id="teamname" type="text" class="form-control" name="teamname" value="" required autofocus/>
-
- 
-                            </div>
-                          
-                        </div>
-                           
-                        <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">ชื่อ - นามสกุล ตัวแทนทีม</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus/>
-
- 
-                            </div>
-                          
-                        </div>
-                        
-                       <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">เบอร์โทรศัพท์</label>
-
-                            <div class="col-md-6">
-                                <input id="mobilephone" type="text" class="form-control" name="mobilephone" value="" required autofocus/>
-
- 
-                            </div>
-                          
-                        </div>
-                        
-
-                        
-
-                        <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">E-Mail </label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
+						<div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     ลงทะเบียน
                                 </button>
                             </div>
                         </div>
-                    </form>
+                       <div class="row">
+						  <div class="col-md-12">
+							<div class="ui error message"></div> 
+						</div>
+					  </div>
+					</form>
                 </div>
             </div>
         </div>
@@ -334,6 +311,36 @@
 			offset:50
 		});
 		  */
+		  
+		 jQuery(document).ready(function( $ ) {
+
+			$(".ui.form")
+				.form({
+				fields: {
+					teamname: {
+						identifier: "teamname",
+						rules: [
+							{type: 'teamname', prompt: 'ระบุชื่อทีมที่ใช้ในการแข่งขัน 3 พยางค์ เช่น เด็กหลังห้อง ,Banana , เดี๋ยวจัดให้'},
+							{type: 'integer', prompt: 'Please enter valid numbers'}
+						]
+					}
+					,
+					managername: {
+						identifier: "managername",
+						rules: [
+							{type: 'managername', prompt: 'ระบุชื่อ-นามสกุลจริง กรณีได้รับรางวัล หากชื่อไม่ตรงกับบัตรประชาชน ทีมงานขอสงวนสิทธิให้ทีมอื่น'},
+							{type: 'integer', prompt: 'Please enter valid numbers'}
+						]
+					}
+				},
+				
+				inline: true,
+				onSuccess: function() {
+					alert("All valid");
+				}
+			});
+		
+		 });
 
 	 </script>
 
