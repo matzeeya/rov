@@ -256,7 +256,7 @@
 				  <td>No</td>
 				  <td class="collapsing">
 					<div class="ui fitted slider checkbox">
-					  <input type="checkbox"> <label></label>
+					  <input type="checkbox" onChange="chkApprove(1,this)"> <label></label>
 					</div>
 				  </td>
 				</tr>
@@ -452,6 +452,17 @@
 			   $("#idWarningDiv").hide();
 		  }
 		  
+		  function chkApprove(id,obj){
+			  // $(obj).checkbox('check'); // สั่งให้ checked
+			  flag = $(obj).is(':checked');
+			  if(flag){
+				  //alert("set approved.");
+			  }else{
+				  //alert("set reject.");
+			  }
+			  
+		  }
+		  
 	  </script>
 	  <script>
 
@@ -526,6 +537,8 @@
 				}
 			});
 		
+
+			 
 		 });
 
 	 </script>
