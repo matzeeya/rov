@@ -170,23 +170,31 @@
 							 <input type="text" name="managername" id="managername"  value="" />
 						 </div>
 						 <div class="field">
-							 <label>เบอร์โทรศัพท์</label>
+							 <label>เบอร์โทรศัพท์มือถือ ที่ติดต่อได้</label>
 							 <input type="text" name="mobilephone" id="mobilephone"  value="" />
 						 </div>
 					 </div>
-					 
+					 <div class="two fields">
 						 <div class="field">
 							 <label>E-Mail</label>
 							 <input type="text" name="email" id="email"  value="" />
 						 </div>
+						 <div class="field">
+						 <label>ประเภททีม</label>
+						<select>
+						  <option value="university">อุดมศึกษา / มหาวิทยาลัย</option>
+						  <option value="school">โรงเรียน / อนุปริญญา</option>
+						</select>
+					  </div>
+					</div>
 					<div class="two fields">
 						 <div class="field">
 							 <label>รหัสผ่าน</label>
-							 <input type="text" name="password" id="password"  value="" />
+							 <input type="password" name="password" id="password"  value="" />
 						 </div>
 						 <div class="field">
 							 <label>ยืนยันรหัสผ่านอีกครั้ง</label>
-							 <input type="text" name="password-confirm" id="password-confirm"  value="" />
+							 <input type="password" name="password-confirm" id="password-confirm"  value="" />
 						 </div>
 					 </div>
 
@@ -313,25 +321,59 @@
 		  */
 		  
 		 jQuery(document).ready(function( $ ) {
-
+			 var minPasswordLength = 6;
 			$(".ui.form")
 				.form({
 				fields: {
 					teamname: {
 						identifier: "teamname",
 						rules: [
-							{type: 'teamname', prompt: 'ระบุชื่อทีมที่ใช้ในการแข่งขัน 3 พยางค์ เช่น เด็กหลังห้อง ,Banana , เดี๋ยวจัดให้'},
-							{type: 'integer', prompt: 'Please enter valid numbers'}
+							{type: 'empty', prompt: 'ระบุชื่อทีมที่ใช้ในการแข่งขัน 3 พยางค์ หากตั้งเกิน ทีมงานขอสงวนสิทธิในการเปลี่ยนแปลงชื่อโดยไม่แจ้งให้ทราบล่วงหน้า'}
 						]
 					}
 					,
 					managername: {
 						identifier: "managername",
 						rules: [
-							{type: 'managername', prompt: 'ระบุชื่อ-นามสกุลจริง กรณีได้รับรางวัล หากชื่อไม่ตรงกับบัตรประชาชน ทีมงานขอสงวนสิทธิให้ทีมอื่น'},
-							{type: 'integer', prompt: 'Please enter valid numbers'}
+							{type: 'empty', prompt: 'ระบุชื่อ-นามสกุลจริง กรณีได้รับรางวัล หากชื่อไม่ตรงกับบัตรประชาชน ทีมงานขอสงวนสิทธิให้ทีมอื่น'}
 						]
-					}
+					},
+					mobilephone: {
+						identifier: 'mobilephone',
+						rules: [
+							{
+							type: 'regExp[/[0]{1}[0-9]{9,}/]',
+							prompt: 'หมายเลขโทรศัพท์ 10 หลัก ตัวอย่าง 085xxyyyyy'
+							}
+						]},
+					email: {
+					  identifier: 'email',
+					  rules: [
+						{
+						  type: 'email',
+						  prompt: 'โปรดระบุ e-mail ที่สามารถติดต่อได้'
+						}
+					  ]
+					},
+					password: {
+					  identifier: 'password',
+					  rules: [
+						{
+						  type: 'length[' + minPasswordLength + ']',
+						  prompt: 'รหัสผ่านต้องมีความยาวอย่างน้อย '+minPasswordLength+' ตัวอักษร'
+						}
+					  ]
+					},
+					passwordConfirm: {
+					  identifier: 'password-confirm',
+					  rules: [
+						{
+						  type: 'match[password]',
+						  prompt: 'โปรดระบุรหัสผ่านให้เหมือนกัน'
+						}
+					  ]
+					},
+					
 				},
 				
 				inline: true,

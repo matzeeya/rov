@@ -122,48 +122,208 @@
 			  </a>
 
 			</div>
-			<div class="ui segment">
-			  <p></p>
-			</div>
+
           
 		   </div>
 	   </div>
     </div>
     
-   <div class="container padding-top-bottom-20">
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">เพิ่มรายชื่อสมาชิก</div>
 
-	   
-	   <div class="row">
-          <div class="col-md-1">
-		   </div>
-           <div class="col-md-10">
-			   <div class="ui floating message">
-					 <form class="ui form">
+                <div class="panel-body">
+                   
+                   <form class="ui form">
+                    
+					
+					 <div class="three fields">
+						 <div class="field">
+							 <label>ชื่อ </label>
+							 <input type="text" name="firstname" id="firstname"  value="" />
+						 </div>
+						 <div class="field">
+							 <label>นามสกุล</label>
+							 <input type="text" name="lastname" id="lastname"  value="" />
+						 </div>
+						 <div class="field">
+							 <label>รหัสนิสิต/รหัสนักศึกษา</label>
+							 <input type="text" name="studentid" id="studentid"  value="" />
+						 </div>
+					 </div>
+					 
+					<div class="" id="loadingDiv">
+					 <div class="two fields">
+						 <div class="field">
+							 <label>ID ในเกม ROV ที่ใช้ในการแข่งขัน</label>
+							 <div class="ui left icon input">
+							 <input type="text" name="gameid" id="gameid"  value="" onchange="checkIdExits()" /><i class="users icon"></i>
+							 </div>
+							 <input type="hidden" name="hidGameId" id="hidGameId" value="" />
+							 <div class="ui pointing red basic label" id="idWarningDiv" style="display: none">
+							  id นี้ถูกใช้ในการแข่งขันแล้ว 
+							 </div>
+							 
+						 </div>
+						 <div class="field">
+						 
+						 </div>
+					 </div>
+					</div>
+					 
+					 <div class="two fields">
+
 					  <div class="field">
-						<label>First Name</label>
-						<input type="text" name="first-name" placeholder="First Name">
+						 <label>คณะ</label>
+						<select id="faculty" name="faculty">
+					  	  <option value="">-- ไม่ระบุ --</option>
+						  <option value="203">คณะเกษตรศาสตร์ ทรัพยากรธรรมชาติและสิ่งแวดล้อม</option>
+						  <option value="204">คณะเภสัชศาสตร์</option>
+						  <option value="206">คณะวิทยาศาสตร์</option>
+						  <option value="207">คณะวิศวกรรมศาสตร์</option>
+						  <option value="208">คณะศึกษาศาสตร์</option>
+						  <option value="209">คณะแพทยศาสตร์</option>
+						  <option value="210">คณะสาธารณสุขศาสตร์</option>
+						  <option value="211">คณะวิทยาศาสตร์การแพทย์</option>
+						  <option value="212">คณะพยาบาลศาสตร์</option>
+						  <option value="213">คณะทันตแพทยศาสตร์</option>
+						  <option value="214">คณะสหเวชศาสตร์</option>
+						  <option value="215">คณะสถาปัตยกรรมศาสตร์</option>
+						  <option value="216">คณะนิติศาสตร์</option>
+						  <option value="217">คณะมนุษยศาสตร์</option>
+						  <option value="218">คณะบริหารธุรกิจ เศรษฐศาสตร์และการสื่อสาร</option>
+						  <option value="219">คณะสังคมศาสตร์</option>
+						  
+						</select>
 					  </div>
-					  <div class="field">
-						<label>Last Name</label>
-						<input type="text" name="last-name" placeholder="Last Name">
+					   <div class="field">
+							 <label>เบอร์โทรศัพท์มือถือ ที่ติดต่อได้</label>
+							 <input type="text" name="mobilephone" id="mobilephone" placeholder="08x..." value="" />
 					  </div>
-					  <div class="field">
-						<div class="ui checkbox">
-						  <input type="checkbox" tabindex="0" class="hidden">
-						  <label>I agree to the Terms and Conditions</label>
+					</div>
+					
+
+						<div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                               <div class="ui primary submit button">บันทึก</div>
+<!--                                <button type="submit" class="btn btn-success">
+                                    บันทึก
+                                </button>
+                                <button type="reset" class="btn btn-warning" onClick="clearState()">
+                                    Reset
+                                </button>-->
+                                <div class="ui clear button" onClick="clearState()">ล้างค่า</div>
+                            </div>
+
+                        </div>
+                       <div class="row">
+						  <div class="col-md-12">
+							<div class="ui error message"></div> 
 						</div>
 					  </div>
-					  <button class="ui button" type="submit">Submit</button>
 					</form>
-			   </div>
-		    </div>
-		   <div class="col-md-1">
-		   </div>
-	   </div>
+                </div>
+            </div>
+        </div>
     </div>
     
-    
-   
+    <div class="container">
+    	<div class="ui segment">
+			  <table class="ui compact celled definition table">
+			  <thead class="full-width">
+				<tr>
+				  <th>ลำดับ</th>
+				  <th>ชื่อ - นามสกุล</th>
+				  <th>รหัสนิสิต/นักศึกษา</th>
+				  <th>คณะ</th>
+				  <th>ID Game</th>
+				  <th>Approve</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+			  	  <td>1</td>
+				  <td>
+				    <a class="ui teal image label">
+					  <img src="images/christian.jpg">
+					  John Lilki
+					  <div class="detail">Manager</div>
+					</a>
+				  </td>
+				  <td>September 14, 2013</td>
+				  <td>jhlilk22@yahoo.com</td>
+				  <td>No</td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>2</td>
+				  <td>Jamie Harington</td>
+				  <td>January 11, 2014</td>
+				  <td>jamieharingonton@yahoo.com</td>
+				  <td>Yes</td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>3</td>
+				  <td>Jill Lewis</td>
+				  <td>May 11, 2014</td>
+				  <td>jilsewris22@yahoo.com</td>
+				  <td>Yes</td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>4</td>
+				  <td>John Lilki</td>
+				  <td>September 14, 2013</td>
+				  <td>jhlilk22@yahoo.com</td>
+				  <td>No</td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>5</td>
+				  <td>John Lilki</td>
+				  <td>September 14, 2013</td>
+				  <td>jhlilk22@yahoo.com</td>
+				  <td>No</td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+
+			  </tbody>
+			  <tfoot class="full-width">
+				<tr>
+				  <th></th>
+				  <th colspan="5">
+					<div class="ui right floated small primary labeled icon button">
+					  <i class="user icon"></i> เพิ่มรายชื่อ
+					</div>
+
+				  </th>
+				</tr>
+			  </tfoot>
+			</table>
+		</div>
+   </div>
     </section>
     
     
@@ -252,18 +412,121 @@
     <script src="js/Semantic-UI-CSS/semantic.min.js"></script>
 <!--    <script src="js/Semantic-UI-CSS/UI-Modal/modal.min.js"></script>-->
 
-	  
 	  <script>
-/*		$( "#btnOK" ).click(function() {
-			$(".test").modal('show');
-		});
+		  function checkIdExits(){
+			  var id =$("#gameid").val();
+			  if(id!=""){
+				  // change css class ui loading form => loadingDiv  eg. $("p:first").addClass("intro");
+				  // call back route [] to validate gameid
+				  // waiting for result json
+				  // update value checked in hidden element tag eg. #hidGameId
+				  // if not exits disable then textbox
+				      // update change css class ui loading form => loadingDiv
+				     // update css class ; eg. $( "p" ).removeClass( "myClass yourClass" )
+				  // if exits then show warning div idWarningDiv
+				     // clear value checked in hidden element tag eg. #hidGameId
+				     // unlock fillable value of gameid   eg .$("#gameid").removeAttr('disabled');
+				  $("#loadingDiv").addClass("ui loading form");
+				  
+				  setTimeout(function(){ clearLoading(); }, 3000);
+			  }
+			  
+		  }
 		  
-		$(".test").modal({
-			closable: true,
-			autofocus: true,
-			offset:50
-		});
-		  */
+		  function clearLoading(){
+			  //alert("Clear");
+			  $("#loadingDiv").removeClass("ui loading form");
+			  
+			  // valid
+			  $("#hidGameId").val($("#gameid").val()); // update checked in hidden element
+			  $("#gameid").attr('disabled',true);
+			  
+			  // invalid
+			  //$("#idWarningDiv").show();
+		  }
+		  
+		  function clearState(){
+			   $("#gameid").removeAttr('disabled');
+			   $("#hidGameId").val(); // clear hidden game id
+			   $("#loadingDiv").removeClass("ui loading form");
+			   $("#idWarningDiv").hide();
+		  }
+		  
+	  </script>
+	  <script>
+
+		 jQuery(document).ready(function( $ ) {
+			
+			 
+			 
+			 var minPasswordLength = 6;
+			 
+			$(".ui.form")
+				.form({
+				fields: {
+					firstname: {
+						identifier: "firstname",
+						rules: [
+							{type: 'empty', prompt: 'ระบุชื่อ'}
+						]
+					}
+					,
+					lastname: {
+						identifier: "lastname",
+						rules: [
+							{type: 'empty', prompt: 'ระบุนามสกุล'}
+						]
+					},
+					faculty: {
+						identifier: "faculty",
+						rules: [
+							{type: 'empty', prompt: 'ระบุคณะ'}
+						]
+					},
+					
+					studentid: {
+						identifier: "studentid",
+						rules: [
+							{type: 'empty', prompt: 'ระบุรหัสนิสิต/นักศึกษา'}
+						]
+					},
+					mobilephone: {
+						identifier: 'mobilephone',
+						rules: [
+							{
+							type: 'regExp[/[0]{1}[0-9]{9,}/]',
+							prompt: 'หมายเลขโทรศัพท์ 10 หลัก ตัวอย่าง 085xx01234'
+							}
+						]},
+					gameid: {
+					  identifier: 'gameid',
+					  rules: [
+						{
+						  type: 'empty',
+						  prompt: 'โปรดระบุ id ในเกม ROV ที่ใช้ในการแข่งขัน'
+						}
+					  ]
+					},
+					hidGameId: {
+					  identifier: 'hidGameId',
+					  rules: [
+						{
+						  type: 'empty',
+						  prompt: 'โปรดระบุ id ในเกม ROV ที่สามารถใช้ได้'
+						}
+					  ]
+					},
+
+					
+				},
+				
+				inline: true,
+				onSuccess: function() {
+					alert("All valid");
+				}
+			});
+		
+		 });
 
 	 </script>
 
