@@ -244,9 +244,6 @@
 					<span class="markFont"><div id="divTeamName"> ยากูซ่า </div><hr/> </span>
 				  </div>
 				  <ul class="list" id="listInfo">
-					<li>ข้อความคำโปรย หรือคำแนะนำทีม</li>
-					<li>ลิงค์สำหรับวิดิโอแนะนำทีม</li>
-					<li>ชื่อและเบอร์ติดต่อทีม</li>
 				  </ul>
 				</div>
 			</div>
@@ -256,34 +253,14 @@
 					<span class="markFont"> -- สมาชิกทีม -- </span>
 				</div>
 				<div class="ui relaxed divided list" id="divListMember">
-				  <div class="item">
-					<i class="large user circle middle aligned icon"></i>
-					<div class="content">
-					   <div>นายพงศ์พันธุ์ วงค์จันทร์ ,55362202 ,คณะวิศวกรรมศาสตร์</div>
-					  <div class="description">mokamoza</div>
-					</div>
-				  </div>
-				  <div class="item">
-					<i class="large user circle middle aligned icon"></i>
-					<div class="content">
-					  <div>นายวรรธนัย กองฉลาด ,56364014 ,คณะวิศวกรรมศาสตร์</div>
-					  <div class="description">bakaog</div>
-					</div>
-				  </div>
-				  <div class="item">
-					<i class="large user circle middle aligned icon"></i>
-					<div class="content">
-					   <div>นายสุวราม เครือคำ ,56364250 ,คณะวิศวกรรมศาสตร์</div>
-					  <div class="description">zampn</div>
-					</div>
-				  </div>
+
 				</div>
 			   </div>
 			</div>
 		   </div>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-primary" data-dismiss="modal">ย้อนกลับ</button>
+			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="backToMain()">ย้อนกลับ</button>
 		  </div>
 		</div>
 	  </div>
@@ -387,50 +364,77 @@
 			  //Get memberlist from url route
 			  // update teamname to target #divTeamName
 			  // create HTML Element li and append target #listInfo
-			  
-			  /*
-			  eg. 
-			    var x = document.createElement("LI");
-				var t = document.createTextNode("Coffee");
-				x.appendChild(t);
-				document.getElementById("listInfo").appendChild(x);
-			  
-			  
-			  */
-			  
+			 
 			  // create HTML Element DIV and append target #divListMember
 			  // clear loading : clearloadingTeamDiv()
-			    /*
-			  	 <div class="item">
-					<i class="large github middle aligned icon"></i>
-					<div class="content">
-					  <div>นายพงศ์พันธุ์ วงค์จันทร์ ,55362202 ,คณะวิศวกรรมศาสตร์</div>
-					  <div class="description">mokamoza</div>
-					</div>
-				  </div> 
-				  
-				    d = document.createElement('div');
-					$(d).addClass(classname)
-						.html(text)
-						.appendTo($("#myDiv")) //main div
-					.click(function () {
-						$(this).remove();
-					});
-				  
-				  jQuery('<div/>', {
-					"id": 'foo',
-					"name": 'mainDiv',
-					"class": 'wrapper',
-					"click": function() {
-					  jQuery(this).toggleClass("test");
-					}}).appendTo('selector');
-	
-				  
-				  $("#targetDIV").append("<div>Hello, Stack Overflow users</div>"); //Same as appendTo
-				  
-				*/
+
 			  
-			 
+			  	myObj = {
+					"teamname":"ยากูซ่า",
+					"detail":["ข้อความคำโปรย หรือคำแนะนำทีม","ลิงค์สำหรับวิดิโอแนะนำทีม","ชื่อและเบอร์ติดต่อทีม"],
+					"member": [
+						{
+						  "name": "นายพงศ์พันธุ์ วงค์จันทร์",
+						  "studentid": 55362202,
+						  "faculty": "คณะวิศวกรรมศาสตร์",
+						  "rov_id":"mokamoza"
+						},
+						{
+						  "name": "นายวรรธนัย กองฉลาด",
+						  "studentid": 56364014,
+						  "faculty": "คณะวิศวกรรมศาสตร์",
+						  "rov_id":"bakaog"
+						},
+						{
+						  "name": "นายสุวราม เครือคำ",
+						  "studentid": 56364250,
+						  "faculty": "คณะวิศวกรรมศาสตร์",
+						  "rov_id":"zampn"
+						}
+					]
+				};
+			  
+			  
+			  	// console.log(myObj.member);
+				
+			  	// binding
+			  
+			     $("#divTeamName").html(myObj.teamname);
+			  
+				  for(val of myObj.detail){
+					  console.log(val);
+					li = document.createElement('li');
+				  	$(li).html(val)
+			             .appendTo($("#listInfo"));
+				  }
+			  
+			  	  for(val of myObj.member){
+					  console.log(val);
+					item = document.createElement('div');
+					$(item).addClass("item")
+						.html("<i class='large github middle aligned icon'></i>")
+						.appendTo($("#divListMember")) //main div
+					
+/*					icon  = document.createElement('i');
+					 $(icon).addClass("large github middle aligned icon");*/
+					
+					content  = document.createElement('div');
+
+					div_name = document.createElement('div');
+					  $(div_name) .html(val.name+", "+val.studentid+", "+val.faculty)
+					  			  .appendTo($(content));
+					  
+					description = document.createElement('div');
+					  $(description).addClass("description")
+								    .html(val.rov_id)
+								    .appendTo($(content));
+					
+					$(content).appendTo($(item));
+
+
+					 
+				  }
+
 		  }
 		  
 		  function clearLoading(){
@@ -442,6 +446,10 @@
 		  function clearloadingTeamDiv(){
 			  //alert("Clear");
 			  $("#loadingTeamDiv").removeClass("ui loading form");
+
+		  }
+		  
+		  function backToMain(){
 			  // clear HTML Element DIV target #divTeamName set Empty content
 			  
 			  // clear HTML Element li target #listInfo set Empty content
@@ -454,6 +462,11 @@
 			  */
 			  // clear HTML Element DIV target #divListMember set Empty content
 			  // eg document.getElementById('yourDivID').innerHTML=""; or $('#id').html('');
+			  
+			  $("#divTeamName").html("");
+			  $("#listInfo").html("");
+			  $("#divListMember").html("");
+			  console.log("backToMain");
 		  }
 		  
 		  
