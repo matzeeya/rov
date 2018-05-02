@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="css/stellar.css">
+    <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/semantic.css">
+<!--    <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/UI-Modal/modal.min.css">-->
+
+    
+  </head>
+  <body>
+    <header id="home" class="gradient-violat">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="logo-wraper logo-white">
+                <img src="images/logo25.png" alt=""/>e-Sport ROV 25 ปี คณะวิศวกรรมศาสตร์
+              </span></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav  navbar-right">
+				<li class="active"><a href="#home"><span class="menu">หน้าแรก</span> <span class="sr-only">(current)</span></a></li>
+				<li><a href="#services"><span class="menu">กติกาการแข่งขัน</span></a></li>
+				<li><a href="#feature"><span class="menu">ของรางวัล</span></a></li>
+				<li><a href="#blog-card"><span class="menu">ตารางการแข่งขัน</span></a></li>
+				<li><a href="#newsletter"><span class="menu">ผู้ให้การสนับสนุน</span></a></li>
+              <li><a href="#" class="btn btn-orange border-none btn-rounded-corner btn-navbar">สมัครเข้าร่วมแข่งขัน<span class="icon-on-button"><i class="ion-ios-game-controller-b-outline"></i></span></a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+          <hr class="navbar-divider">
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+    
+     <section id="introduction" class="gradient-violat padding-top-90 home-slider">
+      <div id="home-slider" class="empty-carousel">
+
+      </div>
+    </section>
+    
+    <section id="formUI" class="newsletter">
+    
+    
+
+   
+    <div class="container">
+      
+        <div class="ui breadcrumb">
+		  <a class="section">หน้าแรก</a>
+		  <div class="divider"> / </div>
+		  <div class="active section">จัดการทีม</div>
+       </div>
+      
+       <div class="row padding-top-bottom-20">
+          <div class="col-md-12">
+          
+          
+			 <div class="ui pointing menu">
+			  <a class="item">
+				<span class="markFont">ภาพรวม</span>
+			  </a>
+			  <a class="item active">
+				<span class="markFont">จัดการทีม</span>
+			  </a>
+			  <a class="item">
+				<span class="markFont">สายการแข่งขัน</span>
+			  </a>
+			  <a class="item">
+				<span class="markFont">ตารางการแข่งขัน</span>
+			  </a>
+			 <div class="right menu">
+				<a class="ui item">
+			  	  <i class="icon power off"></i>
+				  <span class="markFont">ออกจากระบบ</span>
+				</a>
+			  </div>
+			</div>
+
+          
+		   </div>
+	   </div>
+    </div>
+    
+    <div class="container">
+
+    	<div class="ui segment">
+			<div class="" id="loadingDiv">
+			 <table class="ui compact celled definition table">
+			  <thead class="full-width">
+				<tr>
+				  <th>ลำดับ</th>
+				  <th>ชื่อทีม</th>
+				  <th>ประเภททีม</th>
+				  <th>กลุ่ม</th>
+				  <th>ผู้เล่น</th>
+				  <th>Approve</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+			  	  <td>1</td>
+				  <td>
+					  ยากูซ่า
+				  </td>
+				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
+				  <td>
+				   <a class="ui teal tag label" id="groupTagId" name="groupTagId" >N/A</a>
+				  </td>
+				  <td>					
+				    <button class="ui basic button primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="getTeamDetail(1)">
+					  <i class="icon calendar check outline"></i>
+					  รายชื่อ
+					</button>
+				  </td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox" onChange="chkApprove(1,this)"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>2</td>
+				  <td>พริกเผาหย๋อง</td>
+				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
+				  <td><a class="ui orange tag label"  >A</a></td>
+				  <td>					
+				    <button class="ui basic button primary">
+					  <i class="icon calendar check outline"></i>
+					  รายชื่อ
+					</button>
+				  </td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>3</td>
+				  <td>โบ้นก</td>
+				  <td>โรงเรียน / อนุปริญญา</td>
+				  <td><a class="ui grey tag label">C</a></td>
+				  <td>
+				  	<button class="ui basic button primary">
+					  <i class="icon calendar check outline"></i>
+					  รายชื่อ
+					</button>
+				  </td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>4</td>
+				  <td>กูละเซง</td>
+				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
+				  <td><a class="ui orange tag label"  >A</a></td>
+				  <td>
+				  	<button class="ui basic button primary">
+					  <i class="icon calendar check outline"></i>
+					  รายชื่อ
+					</button>
+				  </td>
+				  <td class="collapsing">
+					<div class="ui fitted slider checkbox">
+					  <input type="checkbox"> <label></label>
+					</div>
+				  </td>
+				</tr>
+				<tr>
+			      <td>5</td>
+				  <td>คิวซะหั้ย</td>
+				  <td>โรงเรียน / อนุปริญญา</td>
+				  <td><a class="ui blue tag label">B</a></td>
+				  <td>
+				  	<button class="ui basic button primary">
+					  <i class="icon calendar check outline"></i>
+					  รายชื่อ
+					</button>
+				  </td>
+				  <td>
+					<i class="green check circle outline icon"></i>
+				  </td>
+				</tr>
+
+			  </tbody>
+			  <tfoot class="full-width">
+				<tr>
+				  <th></th>
+
+				  <th colspan="5">
+
+				  </th>
+				</tr>
+			  </tfoot>
+			</table>
+		   </div>
+		</div>
+   </div>
+   
+
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle">ข้อมูลรายละเอียดทีม</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		 <div class="" id="loadingTeamDiv">
+		  <div class="modal-body">
+			<div class="ui success  message">
+				<div class="content">
+				  <div class="header">
+					<span class="markFont"><div id="divTeamName"> ยากูซ่า </div><hr/> </span>
+				  </div>
+				  <ul class="list" id="listInfo">
+					<li>ข้อความคำโปรย หรือคำแนะนำทีม</li>
+					<li>ลิงค์สำหรับวิดิโอแนะนำทีม</li>
+					<li>ชื่อและเบอร์ติดต่อทีม</li>
+				  </ul>
+				</div>
+			</div>
+			<div class="ui violet message">
+			   <div class="content">
+				<div class="header">
+					<span class="markFont"> -- สมาชิกทีม -- </span>
+				</div>
+				<div class="ui relaxed divided list" id="divListMember">
+				  <div class="item">
+					<i class="large user circle middle aligned icon"></i>
+					<div class="content">
+					   <div>นายพงศ์พันธุ์ วงค์จันทร์ ,55362202 ,คณะวิศวกรรมศาสตร์</div>
+					  <div class="description">mokamoza</div>
+					</div>
+				  </div>
+				  <div class="item">
+					<i class="large user circle middle aligned icon"></i>
+					<div class="content">
+					  <div>นายวรรธนัย กองฉลาด ,56364014 ,คณะวิศวกรรมศาสตร์</div>
+					  <div class="description">bakaog</div>
+					</div>
+				  </div>
+				  <div class="item">
+					<i class="large user circle middle aligned icon"></i>
+					<div class="content">
+					   <div>นายสุวราม เครือคำ ,56364250 ,คณะวิศวกรรมศาสตร์</div>
+					  <div class="description">zampn</div>
+					</div>
+				  </div>
+				</div>
+			   </div>
+			</div>
+		   </div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-dismiss="modal">ย้อนกลับ</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+   <!-- Modal -->
+    </section>
+    
+    
+
+     
+     
+      <footer class="padding-top-30">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="footer-left-content">
+              <div class="logo-colored">
+                คณะวิศวกรรมศาสตร์ 
+              </div>
+              <div class="content">
+                <p class="margin-bottom-30 margin-top-30">มหาวิทยาลัยนเรศวร</p>
+                <p><i class="ion-map" style="font-size: 30px;"></i>&nbsp;&nbsp;&nbsp;&nbsp;99 หมู่ 9 ต.ท่าโพธิ์ อ.เมือง จ.พิษณุโลก 65000</p>
+                <p><i class="ion-ios-telephone" style="font-size: 30px;"></i>&nbsp;&nbsp;&nbsp;&nbsp;055-964371</p>
+                <p><i class="ion-android-mail" style="font-size: 30px;"></i>&nbsp;&nbsp;&nbsp;&nbsp;ecpe-software@nu.ac.th</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-4 col-sm-2">
+                <div class="footer-list-wiget">
+                  <h4>ข้อมูลเพิ่มเติม</h4>
+                  <div class="list-group">
+					<a href="#" class="list-group-item"><i class="ion-ios-game-controller-b-outline" style="font-size: 30px;"></i>&nbsp;<span class="markFont">การรับสมัคร</span></a>
+                    <a href="#" class="list-group-item"><i class="ion-person-add" style="font-size: 30px;"></i>&nbsp;<span class="markFont">ลงทะเบียนเข้าร่วมงาน</span></a>
+                    <a href="#" class="list-group-item"><i class="ion-pin" style="font-size: 30px;"></i>&nbsp;<span class="markFont">ลงทะเบียนการเป็นผู้สนับสนุน</span></a>
+                    <a href="#" class="list-group-item"><i class="ion-chatbubbles" style="font-size: 30px;"></i>&nbsp;<span class="markFont">คำถามที่ถามบ่อย</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-2">
+                <div class="footer-list-wiget">
+                  <h4>เกี่ยวกับเรา</h4>
+                  <div class="list-group">
+                    <a href="#" class="list-group-item"><i class="ion-videocamera" style="font-size: 30px;"></i>&nbsp;<span class="markFont">สถานที่จัดงาน</span></a>
+                    <a href="#" class="list-group-item"><i class="ion-model-s" style="font-size: 30px;"></i>&nbsp;<span class="markFont">แผนที่และการเดินทาง</span></a>
+                    <a href="#" class="list-group-item"><i class="ion-ios-list-outline" style="font-size: 30px;"></i>&nbsp;<span class="markFont">ข้อมูลสำหรับการติดต่อ</span></a>
+                    <a href="#" class="list-group-item"><i class="ion-social-facebook" style="font-size: 30px;"></i>&nbsp;<span class="markFont">Facebook Page</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-2">
+                <div class="footer-list-wiget">
+                  <h4> 25 ปี คณะวิศวกรรมศาสตร์ </h4>
+                  <div class="list-group text-center">
+					  <a href="#">
+					    <img src="images/logo25.png" class="ui small image">
+                      </a>
+                    
+                  </div>
+                  <p class="text-center">  วิศวกรฉลาด บุคลิกดี มีคุณธรรม ก้าวทันเทคโนโลยี (Smart Engineer) </p>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <hr class="footer-divider">
+          <div class="copyright-cta">
+            <p class="text-uppercase">All rights Reserved By <a href="https://themewagon.com/"><span class="span text-violat ">Themewagon</span></a></p>
+          </div>
+        </div>
+      <!-- </div> -->
+      <div class="footer-end-line"></div>
+    </footer>
+    <div id="scroll-top-div" class="scroll-top-div">
+      <div class="scroll-top-icon-container">
+        <i class="ion-ios-arrow-thin-up"></i>
+      </div>
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <!--<script src="js/jquery.min.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="js/bootstrap.min.js"></script>
+ <script src="js/owl.carousel.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+
+    <script src="js/stellar/jquery.stellar.min.js"></script>
+    <script src="js/Semantic-UI-CSS/semantic.min.js"></script>
+    <script src="js/Semantic-UI-CSS/UI-Modal/modal.min.js"></script>
+
+	  <script>
+
+		  
+		  function getTeamDetail(team_id){
+			 	$("#loadingTeamDiv").addClass("ui loading form");
+				setTimeout(function(){ clearloadingTeamDiv(); }, 3000);
+			  
+			  //Get memberlist from url route
+			  // update teamname to target #divTeamName
+			  // create HTML Element li and append target #listInfo
+			  
+			  /*
+			  eg. 
+			    var x = document.createElement("LI");
+				var t = document.createTextNode("Coffee");
+				x.appendChild(t);
+				document.getElementById("listInfo").appendChild(x);
+			  
+			  
+			  */
+			  
+			  // create HTML Element DIV and append target #divListMember
+			  // clear loading : clearloadingTeamDiv()
+			    /*
+			  	 <div class="item">
+					<i class="large github middle aligned icon"></i>
+					<div class="content">
+					  <div>นายพงศ์พันธุ์ วงค์จันทร์ ,55362202 ,คณะวิศวกรรมศาสตร์</div>
+					  <div class="description">mokamoza</div>
+					</div>
+				  </div> 
+				  
+				    d = document.createElement('div');
+					$(d).addClass(classname)
+						.html(text)
+						.appendTo($("#myDiv")) //main div
+					.click(function () {
+						$(this).remove();
+					});
+				  
+				  jQuery('<div/>', {
+					"id": 'foo',
+					"name": 'mainDiv',
+					"class": 'wrapper',
+					"click": function() {
+					  jQuery(this).toggleClass("test");
+					}}).appendTo('selector');
+	
+				  
+				  $("#targetDIV").append("<div>Hello, Stack Overflow users</div>"); //Same as appendTo
+				  
+				*/
+			  
+			 
+		  }
+		  
+		  function clearLoading(){
+			  //alert("Clear");
+			  $("#loadingDiv").removeClass("ui loading form");
+			  
+		  }
+		  
+		  function clearloadingTeamDiv(){
+			  //alert("Clear");
+			  $("#loadingTeamDiv").removeClass("ui loading form");
+			  // clear HTML Element DIV target #divTeamName set Empty content
+			  
+			  // clear HTML Element li target #listInfo set Empty content
+			  /*
+			  	eg.
+			    var list = document.getElementById("myList");
+					while (list.hasChildNodes()) {
+						list.removeChild(list.firstChild);
+					}
+			  */
+			  // clear HTML Element DIV target #divListMember set Empty content
+			  // eg document.getElementById('yourDivID').innerHTML=""; or $('#id').html('');
+		  }
+		  
+		  
+		  function chkApprove(id,obj){
+			  // $(obj).checkbox('check'); // สั่งให้ checked
+			  flag = $(obj).is(':checked');
+			  if(flag){
+				  //alert("set approved.");
+				  console.log("set approved.");
+				   //$(obj).parents('tr').addClass('positive');
+				  $("#loadingDiv").addClass("ui loading form");
+				  setTimeout(function(){ clearLoading(); }, 2000);
+				  
+			  }else{
+				  //alert("set reject.");
+				  // $(obj).parents('tr').removeClass('positive');
+				  console.log("set reject.");
+				  $("#loadingDiv").addClass("ui loading form");
+				  setTimeout(function(){ clearLoading(); }, 2000);
+			  }
+			  
+		  }
+		  
+	  </script>
+	  <script>
+
+		 jQuery(document).ready(function( $ ) {
+			
+			 
+		 });
+
+	 </script>
+
+  </body>
+</html>
