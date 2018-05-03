@@ -521,7 +521,7 @@
 					  console.log("true "+val.name+" ("+val.current+"/"+val.maximum+")");
 					  $('<option>').val(val.name).text(" กลุ่ม "+val.name+" ("+val.current+"/"+val.maximum+")").attr('selected','selected').appendTo('#group');
 				  }else{
-					  $('<option>').val(myObj.name).text(" กลุ่ม "+val.name+" ("+val.current+"/"+val.maximum+")").appendTo('#group');
+					  $('<option>').val(val.name).text(" กลุ่ม "+val.name+" ("+val.current+"/"+val.maximum+")").appendTo('#group');
 					  console.log("false "+val.name+" ("+val.current+"/"+val.maximum+")");
 				  }
 				  
@@ -558,18 +558,19 @@
 			  
 			  console.log("group older : "+group_older);
 			  console.log("group :"+group);
-			  // aTagTeam+team_id
-			  //$(obj).removeClass(clsMap.get(group_older)); // remove
-			  //$(obj).addClass(clsMap.get(group)); //addClass
-
-			  console.log("Target obj :"+$("#aTagTeam"+team_id)+"");
 			  
+			  // aTagTeam+team_id
 			  
 			  $("#aTagTeam"+team_id).removeClass(clsMap.get(group_older)); // remove
 			  $("#aTagTeam"+team_id).addClass(clsMap.get(group)); //addClass
-			  // update team value in text a 
-			  $("#aTagTeam"+team_id).val(group);
 			  
+			  console.log("debug map [get old]: "+clsMap.get(group_older));
+			  console.log("debug map [get new]: "+clsMap.get(group));
+				  
+			  // update team value in text a 
+			  $("#aTagTeam"+team_id).html(group);
+			  
+
 			  // mockup set result
 			  
 			  clearOptionSelect();
@@ -649,6 +650,7 @@
 
 		 jQuery(document).ready(function( $ ) {
 			
+
 			 
 		 });
 
