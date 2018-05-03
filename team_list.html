@@ -128,7 +128,7 @@
 				  </td>
 				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
 				  <td>
-				   <a class="ui teal tag label" id="groupTagId" name="groupTagId" >N/A</a>
+				   <a class="ui teal tag label" data-toggle="modal" data-target="#exampleModalGroup" onClick="getGroup('',1)" id="aTagTeam1" name="aTagTeam1">N/A</a>
 				  </td>
 				  <td>					
 				    <button class="ui basic button primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="getTeamDetail(1)">
@@ -163,7 +163,7 @@
 			      <td>3</td>
 				  <td>โบ้นก</td>
 				  <td>โรงเรียน / อนุปริญญา</td>
-				  <td><a class="ui grey tag label">C</a></td>
+				  <td><a class="ui purple tag label">C</a></td>
 				  <td>
 				  	<button class="ui basic button primary">
 					  <i class="icon calendar check outline"></i>
@@ -197,7 +197,7 @@
 			      <td>5</td>
 				  <td>คิวซะหั้ย</td>
 				  <td>โรงเรียน / อนุปริญญา</td>
-				  <td><a class="ui blue tag label">B</a></td>
+				  <td><a class="ui green tag label">B</a></td>
 				  <td>
 				  	<button class="ui basic button primary">
 					  <i class="icon calendar check outline"></i>
@@ -261,6 +261,43 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="backToMain()">ย้อนกลับ</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  
+  
+  	<div class="modal fade" id="exampleModalGroup" tabindex="-1" role="dialog" aria-labelledby="exampleModalGroupTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongGroupTitle">กำหนดสายการแข่งขันของทีม</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		 <div class="" id="loadingGroupDiv">
+		  <div class="modal-body">
+			<div class="ui success  message">
+				<div class="content">
+				  <div class="header">
+					<span class="markFont"> เลือกสายที่ต้องการ <hr/> </span>
+				  </div>
+				    <form class="ui form">
+				     <input type="hidden" name="hidBeforeChangeGroup" id="hidBeforeChangeGroup" value="" />
+				     <input type="hidden" name="hidTeamId" id="hidTeamId" value="" />
+					  <div class="field">
+						<select id="group" name="group">
+						</select>
+					  </div>
+					</form>
+				</div>
+			</div>
+		   </div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="backToMainList()">ย้อนกลับ</button>
+			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="comfirmGroup()">ยืนยัน</button>
 		  </div>
 		</div>
 	  </div>
@@ -437,6 +474,108 @@
 
 		  }
 		  
+		  function getGroup(group_code,team_id){
+			  	$("#loadingTeamDiv").addClass("ui loading form");
+			    setTimeout(function(){ clearloadingGroupDiv(); }, 3000);
+			   
+			    // set older group before change
+			  	$("#hidBeforeChangeGroup").val(group_code);
+			    $("#hidTeamId").val(team_id);// update cuurent team id for click
+			  
+			    // get count of group [A,B,C,D] from url route
+			    // create element option select
+			    myObj = [
+						{
+						  "name": "A",
+						  "current": 4,
+						  "maximum": 16
+						},
+						{
+						  "name": "B",
+						  "current": 8,
+						  "maximum": 16
+						},
+						{
+						  "name": "C",
+						  "current": 3,
+						  "maximum": 16
+						},
+						{
+						  "name": "D",
+						  "current": 10,
+						  "maximum": 16
+						}
+		  			]
+			  
+				  //$('<option>').val('').text('-- ไม่ระบุ --').appendTo('#group');
+				 if(group_code==""){
+					 $('<option>').val('').text('-- ไม่ระบุ --').attr('selected','selected').appendTo('#group');
+				 }else{
+					 $('<option>').val('').text('-- ไม่ระบุ --').appendTo('#group');
+				 }
+			  
+			  for(val of myObj){
+				  //opt = document.createElement('option');
+				  
+				  if(group_code===val.name){
+					  console.log("true "+val.name+" ("+val.current+"/"+val.maximum+")");
+					  $('<option>').val(val.name).text(" กลุ่ม "+val.name+" ("+val.current+"/"+val.maximum+")").attr('selected','selected').appendTo('#group');
+				  }else{
+					  $('<option>').val(myObj.name).text(" กลุ่ม "+val.name+" ("+val.current+"/"+val.maximum+")").appendTo('#group');
+					  console.log("false "+val.name+" ("+val.current+"/"+val.maximum+")");
+				  }
+				  
+			  }
+			  console.log(myObj);
+			  console.log("getGroup is call");
+			  
+		  }
+		  
+		  function comfirmGroup(){
+			  
+			  // jqeury post json to provice route to update db 
+			  // check result and update GUI
+			  // clear option select in target #group
+			  /*
+			     ไม่ได้เลือก : ui teal tag label 
+			    กลุ่ม A สีส้ม  : ui orange tag label 
+				กลุ่ม B สีเขียว :ui green tag label
+				กลุ่ม c สีม่วง :ui purple tag label
+				กลุ่ม D สีน้ำตาล : ui brown tag label
+
+			  */
+			  team_id =$("#hidTeamId").val();
+			  
+			  var clsMap = new Map();
+				  clsMap.set('A', 'ui orange tag label');
+				  clsMap.set('B', 'ui green tag label');
+			  	  clsMap.set('C', 'ui purple tag label');
+			      clsMap.set('D', 'ui brown tag label');
+			  	  clsMap.set('', 'ui teal tag label');
+			  
+			  group_older =$("#hidBeforeChangeGroup").val();
+			  group = $('#group option:selected').val(); // current group selected
+			  
+			  console.log("group older : "+group_older);
+			  console.log("group :"+group);
+			  // aTagTeam+team_id
+			  //$(obj).removeClass(clsMap.get(group_older)); // remove
+			  //$(obj).addClass(clsMap.get(group)); //addClass
+
+			  console.log("Target obj :"+$("#aTagTeam"+team_id)+"");
+			  
+			  
+			  $("#aTagTeam"+team_id).removeClass(clsMap.get(group_older)); // remove
+			  $("#aTagTeam"+team_id).addClass(clsMap.get(group)); //addClass
+			  // update team value in text a 
+			  $("#aTagTeam"+team_id).val(group);
+			  
+			  // mockup set result
+			  
+			  clearOptionSelect();
+			  console.log("confirm group");
+		  }
+		  
 		  function clearLoading(){
 			  //alert("Clear");
 			  $("#loadingDiv").removeClass("ui loading form");
@@ -447,6 +586,16 @@
 			  //alert("Clear");
 			  $("#loadingTeamDiv").removeClass("ui loading form");
 
+		  }
+		  
+		  function clearloadingGroupDiv(){
+			  $("#loadingGroupDiv").removeClass("ui loading form");
+		  }
+		  
+		  function clearOptionSelect(){
+			  $("#group").empty();
+			  $("#hidBeforeChangeGroup").val(""); // clear for new row click
+			  $("#hidTeamId").val(""); // clear for new row click
 		  }
 		  
 		  function backToMain(){
@@ -467,6 +616,11 @@
 			  $("#listInfo").html("");
 			  $("#divListMember").html("");
 			  console.log("backToMain");
+		  }
+		  
+		  function backToMainList(){
+			  //for manage group
+			  clearOptionSelect();
 		  }
 		  
 		  
