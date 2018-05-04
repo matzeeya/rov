@@ -128,7 +128,7 @@
 				  </td>
 				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
 				  <td>
-				   <a class="ui teal tag label" data-toggle="modal" data-target="#exampleModalGroup" onClick="getGroup('',1)" id="aTagTeam1" name="aTagTeam1">N/A</a>
+				   <a class="ui teal tag label" data-toggle="modal" data-target="#exampleModalGroup" onClick="getGroup(1)" id="aTagTeam1" name="aTagTeam1">N/A</a>
 				  </td>
 				  <td>					
 				    <button class="ui basic button primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="getTeamDetail(1)">
@@ -414,19 +414,22 @@
 						  "name": "นายพงศ์พันธุ์ วงค์จันทร์",
 						  "studentid": 55362202,
 						  "faculty": "คณะวิศวกรรมศาสตร์",
-						  "rov_id":"mokamoza"
+						  "rov_id":"mokamoza",
+						  "verify":true
 						},
 						{
 						  "name": "นายวรรธนัย กองฉลาด",
 						  "studentid": 56364014,
 						  "faculty": "คณะวิศวกรรมศาสตร์",
-						  "rov_id":"bakaog"
+						  "rov_id":"bakaog",
+						  "verify":true
 						},
 						{
 						  "name": "นายสุวราม เครือคำ",
 						  "studentid": 56364250,
 						  "faculty": "คณะวิศวกรรมศาสตร์",
-						  "rov_id":"zampn"
+						  "rov_id":"zampn",
+						  "verify":false
 						}
 					]
 				};
@@ -446,10 +449,17 @@
 				  }
 			  
 			  	  for(val of myObj.member){
-					  console.log(val);
+					console.log(val);
+					
+					  if(val.verify==true){
+						  icon ="<i class='large check circle middle aligned icon'></i>";
+					  }else{
+						  icon ="<i class='large eye slash outline middle aligned icon'></i>";
+					  }
+					  
 					item = document.createElement('div');
 					$(item).addClass("item")
-						.html("<i class='large github middle aligned icon'></i>")
+						.html(icon)
 						.appendTo($("#divListMember")) //main div
 					
 /*					icon  = document.createElement('i');
@@ -474,10 +484,13 @@
 
 		  }
 		  
-		  function getGroup(group_code,team_id){
+		  function getGroup(team_id){
 			  	$("#loadingTeamDiv").addClass("ui loading form");
 			    setTimeout(function(){ clearloadingGroupDiv(); }, 3000);
 			   
+			  	console.log("get innerHTML tag A :"+$("#aTagTeam"+team_id).html());
+			  
+			    group_code=$("#aTagTeam"+team_id).html();
 			    // set older group before change
 			  	$("#hidBeforeChangeGroup").val(group_code);
 			    $("#hidTeamId").val(team_id);// update cuurent team id for click
@@ -508,10 +521,10 @@
 		  			]
 			  
 				  //$('<option>').val('').text('-- ไม่ระบุ --').appendTo('#group');
-				 if(group_code==""){
-					 $('<option>').val('').text('-- ไม่ระบุ --').attr('selected','selected').appendTo('#group');
+				 if(group_code=="N/A"){
+					 $('<option>').val('N/A').text('-- ไม่ระบุ --').attr('selected','selected').appendTo('#group');
 				 }else{
-					 $('<option>').val('').text('-- ไม่ระบุ --').appendTo('#group');
+					 $('<option>').val('N/A').text('-- ไม่ระบุ --').appendTo('#group');
 				 }
 			  
 			  for(val of myObj){
@@ -551,7 +564,7 @@
 				  clsMap.set('B', 'ui green tag label');
 			  	  clsMap.set('C', 'ui purple tag label');
 			      clsMap.set('D', 'ui brown tag label');
-			  	  clsMap.set('', 'ui teal tag label');
+			  	  clsMap.set('N/A', 'ui teal tag label');
 			  
 			  group_older =$("#hidBeforeChangeGroup").val();
 			  group = $('#group option:selected').val(); // current group selected
