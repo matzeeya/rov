@@ -21,6 +21,10 @@
     <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/semantic.css">
 <!--    <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/UI-Modal/modal.min.css">-->
 
+    <!--datetimepicker-->
+    <link rel="stylesheet" type="text/css" href="js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/UI-Modal/modal.min.css">
+   
     
   </head>
   <body>
@@ -139,9 +143,11 @@
 			</div>
 			<div class="ui bottom attached tab segment active" data-tab="groupA">
 			  
+			  <div class="ui four doubling cards">
 			   <a class="ui orange card" href="#" data-toggle="modal" data-target="#exampleModalGroup" onclick="match_fixing(this)" id="1">
+			   
 				  <div class="content">
-					<div class="header"><span class="markFont">ยากูซ่า</span></div>
+					<div class="header"><span class="markFont"><div id="teamNameLabel1">ยากูซ่า</div></span></div>
 					<div class="meta">
 					  <span class="category">ข้อความคำโปรย</span>
 					</div>
@@ -154,13 +160,39 @@
 				  </div>
 				  <div class="extra content">
 				    <div class="left floated author">
-				    
+				    <div class="ui bottom left attached green label">รอบคัดเลือก 1st</div>
 				    </div>
 					<div class="right floated author">
-					  ประกบคู่
+					  ประกบคู่ <i class="yellow circular trophy icon"></i>
 					</div>
 				  </div>
 				</a>
+				
+
+			   <div class="ui raised grey card" onclick="match_fixing(this)" id="2" data-toggle="modal" data-target="#exampleModalGroup">
+				  <div class="content">
+					<div class="header"><span class="markFont"><div id="teamNameLabel2">พริกเผาหย๋อง</div></span></div>
+					<div class="meta">
+					  <span class="category">ข้อความคำโปรย</span>
+					</div>
+					<div class="description">
+					  <ul class="list" >
+			         	<li>ชื่อและเบอร์ติดต่อทีม</li>
+			         	<li>ประเภททีม</li>
+				      </ul>
+					</div>
+				  </div>
+				  <div class="extra content">
+				    <div class="left floated author">
+				    <div class="ui bottom left attached green label">รอบคัดเลือก 1st</div>
+				    </div>
+					<div class="right floated author">
+					  ตกรอบ  <i class="inverted circular frown outline icon"></i>
+					</div>
+				  </div>
+				 </div>
+				 
+			  </div>
 
 			</div>
 			
@@ -346,10 +378,18 @@
 		  </div>
 		 <div class="" id="loadingGroupDiv">
 		  <div class="modal-body">
+		  
+		  	<div class="ui blue  message">
+				<div class="content">
+				  <div class="header">
+					<span class="markFont"><div id="divTeamSourceName"></div></span>
+				  </div>
+				</div>
+			</div>
 			<div class="ui success  message">
 				<div class="content">
 				  <div class="header">
-					<span class="markFont"> เลือกทีมที่ต้องการ <hr/> </span>
+					<span class="markFont"> จะเจอกับทีมที่ต้องการ <hr/> </span>
 				  </div>
 				    <form class="ui form">
 				     <input type="hidden" name="hidBeforeChangeGroup" id="hidBeforeChangeGroup" value="" />
@@ -357,6 +397,14 @@
 					  <div class="field">
 						<select id="teamListBattle" name="teamListBattle">
 						</select>
+					  </div>
+					  <div class="field">
+						 <label>วันที่ทำการแข่งขัน</label>
+ 					
+						<div class="ui icon input">
+						  <input type="text" placeholder="เลือกวันที่ทำการแข่งขัน..." name="datePicker" id="datePicker">
+						  <i class="inverted circular calendar alternate outline icon"></i>
+						</div>
 					  </div>
 					</form>
 				</div>
@@ -459,13 +507,25 @@
     <script src="js/Semantic-UI-CSS/semantic.min.js"></script>
     <script src="js/Semantic-UI-CSS/UI-Modal/modal.min.js"></script>
 
+     <!--datetimepicker-->
+    <script src="js/bootstrap-datetimepicker/js/moment.js"></script>
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/th.js"></script>
+    <script src="js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    
 	  <script>
 
 		  function match_fixing(obj){
 			  
 			 //show modal to matching team
-			 // retrive team by condition : group state #select matchRound
-			 // mockup json  
+			  
+			 // retrive team by condition : group state #select matchRound (divide or remove teamlist by team id)
+			 team_id= $(obj).attr("id");
+			 // set label targer source team #divTeamSourceName ,value from #teamNameLabel+id 
+			 $("#divTeamSourceName").html($("#teamNameLabel"+team_id).html());
+			 console.log("team source label name :"+$("#teamNameLabel"+team_id).html());
+
+			  // ajax send 
+			 // return value : mockup json  
 			 
 			 teamObj = [
 				{
@@ -505,7 +565,7 @@
 			  }
 			  
 			  // assign team source #hidTeamIdSource
-			  $("#hidTeamIdSource").val($(obj).attr("id"));
+			  $("#hidTeamIdSource").val(team_id);
 			  console.log("team source id :"+$("#hidTeamIdSource").val());
 			  
 		  }
@@ -755,8 +815,10 @@
 		  }
 		  
 		  function clearOptionSelectTeam(){
-			  $("#teamListBattle").empty();
+			  $("#teamListBattle").empty(); 
 			  $("#hidTeamIdSource").val(""); // clear for new card click
+			  $("#divTeamSourceName").val("");
+			  $("#datePicker").val("");
 			   console.log("clear option SelectTeam");
 		  }
 		  
@@ -793,6 +855,10 @@
 			$('.menu .item')
 			  .tab()
 			;
+			 
+			 $('#datePicker').datetimepicker({
+			 	 format : "DD/MM/YYYY"
+			 });
 			 
 		 });
 
