@@ -139,7 +139,7 @@
 			</div>
 			<div class="ui bottom attached tab segment active" data-tab="groupA">
 			  
-			   <a class="ui orange card" href="#">
+			   <a class="ui orange card" href="#" data-toggle="modal" data-target="#exampleModalGroup" onclick="match_fixing(this)" id="1">
 				  <div class="content">
 					<div class="header"><span class="markFont">ยากูซ่า</span></div>
 					<div class="meta">
@@ -339,7 +339,7 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLongGroupTitle">กำหนดสายการแข่งขันของทีม</h5>
+			<h5 class="modal-title" id="exampleModalLongGroupTitle">ประกบคู่แข่งขัน</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
@@ -349,13 +349,13 @@
 			<div class="ui success  message">
 				<div class="content">
 				  <div class="header">
-					<span class="markFont"> เลือกสายที่ต้องการ <hr/> </span>
+					<span class="markFont"> เลือกทีมที่ต้องการ <hr/> </span>
 				  </div>
 				    <form class="ui form">
 				     <input type="hidden" name="hidBeforeChangeGroup" id="hidBeforeChangeGroup" value="" />
-				     <input type="hidden" name="hidTeamId" id="hidTeamId" value="" />
+				     <input type="hidden" name="hidTeamIdSource" id="hidTeamIdSource" value="" />
 					  <div class="field">
-						<select id="group" name="group">
+						<select id="teamListBattle" name="teamListBattle">
 						</select>
 					  </div>
 					</form>
@@ -364,7 +364,7 @@
 		   </div>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="backToMainList()">ย้อนกลับ</button>
+			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="backToMainCard()">ย้อนกลับ</button>
 			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="comfirmGroup()">ยืนยัน</button>
 		  </div>
 		</div>
@@ -461,6 +461,54 @@
 
 	  <script>
 
+		  function match_fixing(obj){
+			  
+			 //show modal to matching team
+			 // retrive team by condition : group state #select matchRound
+			 // mockup json  
+			 
+			 teamObj = [
+				{
+				  "id": 1,
+				  "teamname": "พริกเผาหย๋อง",
+				  "current_state": 1,
+				  "group":"A"
+				},
+				{
+				  "id": 1,
+				  "teamname": "โบ้นก",
+				  "current_state": 1,
+				  "group":"A"
+				},
+				{
+				  "id": 1,
+				  "teamname": "กูละเซง",
+				  "current_state": 1,
+				  "group":"A"
+				},
+				{
+				  "id": 1,
+				  "teamname": "คิวซะหั้ย",
+				  "current_state": 1,
+				  "group":"A"
+				}
+		  	]
+			 // assign json obj to tag <option> and appen to #select teamListBattle
+			  console.log("teamlist for match fixing");
+			  console.log(teamObj);
+			  
+			  
+			 for(val of teamObj){
+				  //opt = document.createElement('option');				 
+				 	$('<option>').val(val.id).text(" ทีม "+val.teamname).appendTo('#teamListBattle');
+					console.log(" ทีม "+val.teamname);
+			  }
+			  
+			  // assign team source #hidTeamIdSource
+			  $("#hidTeamIdSource").val($(obj).attr("id"));
+			  console.log("team source id :"+$("#hidTeamIdSource").val());
+			  
+		  }
 		  
 		  function getTeamDetail(team_id){
 			 	$("#loadingTeamDiv").addClass("ui loading form");
@@ -678,6 +726,7 @@
 			  $("#group").empty();
 			  $("#hidBeforeChangeGroup").val(""); // clear for new row click
 			  $("#hidTeamId").val(""); // clear for new row click
+			 
 		  }
 		  
 		  function backToMain(){
@@ -703,6 +752,16 @@
 		  function backToMainList(){
 			  //for manage group
 			  clearOptionSelect();
+		  }
+		  
+		  function clearOptionSelectTeam(){
+			  $("#teamListBattle").empty();
+			  $("#hidTeamIdSource").val(""); // clear for new card click
+			   console.log("clear option SelectTeam");
+		  }
+		  
+		  function backToMainCard(){
+			  clearOptionSelectTeam();
 		  }
 		  
 		  
