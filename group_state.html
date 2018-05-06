@@ -121,7 +121,7 @@
 		  <div class="right item">
 			  <form class="ui form">
 				<div class="ui action input">
-					<select id="matchRound" name="matchRound">
+					<select id="matchRound" name="matchRound" onChange="loadTeamCard()">
 					 <option value="0">ทั้งหมด</option>
 					 <option value="1">รอบคัดเลือก 1st</option>
 					 <option value="2">รอบคัดเลือก 2nd</option>
@@ -135,6 +135,7 @@
 		</div>
    	  
     	  <!-- tab-->
+   	     <div class="" id="loadingTeamDiv">
     	    <div class="ui top attached tabular menu">
 			  <a class="item active" data-tab="groupA"><span class="markFont">กลุ่ม A</span></a>
 			  <a class="item" data-tab="groupB"><span class="markFont">กลุ่ม B</span></a>
@@ -143,7 +144,7 @@
 			</div>
 			<div class="ui bottom attached tab segment active" data-tab="groupA">
 			  
-			  <div class="ui four doubling cards">
+			  <div class="ui four doubling cards" id="classContainerGroupA" name="classContainerGroupA">
 			   <a class="ui orange card" href="#" data-toggle="modal" data-target="#exampleModalGroup" onclick="match_fixing(this)" id="1">
 			   
 				  <div class="content">
@@ -205,6 +206,7 @@
          	<div class="ui bottom attached tab segment" data-tab="groupD">
 			   Detail D
 			</div>
+		 </div>
     	   <!-- tab-->
 			<div class="" id="loadingDiv">
 			 <table class="ui compact celled definition table">
@@ -336,7 +338,7 @@
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>
-		 <div class="" id="loadingTeamDiv">
+		
 		  <div class="modal-body">
 			<div class="ui success  message">
 				<div class="content">
@@ -358,7 +360,7 @@
 			   </div>
 			</div>
 		   </div>
-		  </div>
+
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="backToMain()">ย้อนกลับ</button>
 		  </div>
@@ -514,6 +516,79 @@
     
 	  <script>
 
+		  function loadTeamCard(){
+			 
+			  console.log("filter by group state"+$("#matchRound").val());
+			  // #loadingTeamDiv
+			  $("#loadingTeamDiv").addClass("ui loading form");
+			  setTimeout(function(){ clearloadingTeamDiv(); }, 3000);
+			  
+			  // send ajax request to get teams with match group state condition
+			  group_state_filter= $("#matchRound").val();
+			  
+			  // get return obj json , and display result in card components
+			  // mockup json obj
+			  teamObj = [
+				{
+				  "id": 1,
+				  "teamname": "พริกเผาหย๋อง",
+				  "sluck":"ข้อความคำโปรย",
+				  "team_type":"อุดมศึกษา / มหาวิทยาลัย",
+			      "team_manager":"นาย xxxx yyyy , 083-xxx-8392",
+				  "group_state": "รอบคัดเลือก 1st",
+				  "group":"A",
+				  "eliminated":"false"
+				},
+				{
+				  "id": 2,
+				  "teamname": "โบ้นก",
+				  "sluck":"ข้อความคำโปรย",
+				  "team_type":"โรงเรียน / อนุปริญญา",
+			      "team_manager":"นาย xxxx yyyy , 089-xxx-9857",
+				  "group_state": "รอบคัดเลือก 1st",
+				  "group":"A",
+				  "eliminated":"true"
+				},
+				{
+				  "id": 3,
+				  "teamname": "กูละเซง",
+				  "sluck":"ข้อความคำโปรย",
+				  "team_type":"อุดมศึกษา / มหาวิทยาลัย",
+			      "team_manager":"นาย xxxx yyyy , 085-xxx-6519",
+				  "group_state": "รอบคัดเลือก 1st",
+				  "group":"A",
+				  "eliminated":"false"
+				},
+				{
+				  "id": 4,
+				  "teamname": "คิวซะหั้ย",
+				  "sluck":"ข้อความคำโปรย",
+				  "team_type":"โรงเรียน / อนุปริญญา",
+			      "team_manager":"นาย xxxx yyyy , 087-xxx-9391",
+				  "group_state": "รอบคัดเลือก 1st",
+				  "group":"A",
+				  "eliminated":"true"
+				}
+		  	 ]
+			  
+			  // create card html 
+			  for(val of teamObj){
+				  //opt = document.createElement('option');				 
+				 	//$('<option>').val(val.id).text(" ทีม "+val.teamname).appendTo('#teamListBattle');
+				  console.log("create Card: ทีม "+val.teamname);
+				  if(val.eliminated){
+					  // ตกรอบ
+					  /* <div class="ui raised grey card"> */ 
+				  }else{
+					  // เข้ารอบ
+					  /* <a class="ui orange card"> */ 
+				  }
+				  
+			  }
+			  
+			  
+		  }
+		  
 		  function match_fixing(obj){
 			  
 			 //show modal to matching team
@@ -571,8 +646,7 @@
 		  }
 		  
 		  function getTeamDetail(team_id){
-			 	$("#loadingTeamDiv").addClass("ui loading form");
-				setTimeout(function(){ clearloadingTeamDiv(); }, 3000);
+
 			  
 			  //Get memberlist from url route
 			  // update teamname to target #divTeamName
