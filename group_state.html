@@ -130,6 +130,7 @@
 					</select>
 				  <div class="ui button">Go</div>
 				</div>
+				 <input type="hidden" name="hidTabGroupActive" id="hidTabGroupActive" value="A" />
 			  </form>
 		  </div>
 		</div>
@@ -137,15 +138,15 @@
     	  <!-- tab-->
    	     <div class="" id="loadingTeamDiv">
     	    <div class="ui top attached tabular menu">
-			  <a class="item active" data-tab="groupA"><span class="markFont">กลุ่ม A</span></a>
-			  <a class="item" data-tab="groupB"><span class="markFont">กลุ่ม B</span></a>
-			  <a class="item" data-tab="groupC"><span class="markFont">กลุ่ม C</span></a>
-			  <a class="item" data-tab="groupD"><span class="markFont">กลุ่ม D</span></a>
+			  <a class="item active" data-tab="groupA" onclick="tabChange('A')"><span class="markFont">กลุ่ม A</span></a>
+			  <a class="item" data-tab="groupB" onclick="tabChange('B')" ><span class="markFont">กลุ่ม B</span></a>
+			  <a class="item" data-tab="groupC" onclick="tabChange('C')"><span class="markFont">กลุ่ม C</span></a>
+			  <a class="item" data-tab="groupD" onclick="tabChange('D')"><span class="markFont">กลุ่ม D</span></a>
 			</div>
 			<div class="ui bottom attached tab segment active" data-tab="groupA">
 			  
-			  <div class="ui four doubling cards" id="classContainerGroupA" name="classContainerGroupA">
-			   <a class="ui orange card" href="#" data-toggle="modal" data-target="#exampleModalGroup" onclick="match_fixing(this)" id="1">
+			  <div class="ui four doubling cards" id="cardContainerGroupA" name="cardContainerGroupA">
+			   <a class="ui orange card" href="#" data-toggle="modal" data-target="#modalMatchFixing" onclick="match_fixing(this)" id="1">
 			   
 				  <div class="content">
 					<div class="header"><span class="markFont"><div id="teamNameLabel1">ยากูซ่า</div></span></div>
@@ -170,7 +171,7 @@
 				</a>
 				
 
-			   <div class="ui raised grey card" onclick="match_fixing(this)" id="2" data-toggle="modal" data-target="#exampleModalGroup">
+			   <div class="ui raised grey card" onclick="match_fixing(this)" id="2" data-toggle="modal" data-target="#modalMatchFixing">
 				  <div class="content">
 					<div class="header"><span class="markFont"><div id="teamNameLabel2">พริกเผาหย๋อง</div></span></div>
 					<div class="meta">
@@ -198,13 +199,16 @@
 			</div>
 			
 			<div class="ui bottom attached tab segment" data-tab="groupB">
-			   Detail B
+			   <div class="ui four doubling cards" id="cardContainerGroupB" name="cardContainerGroupB">
+			   </div>
 			</div>
 			<div class="ui bottom attached tab segment" data-tab="groupC">
-			   Detail C
+			   <div class="ui four doubling cards" id="cardContainerGroupC" name="cardContainerGroupC">
+			   </div>
 			</div>
          	<div class="ui bottom attached tab segment" data-tab="groupD">
-			   Detail D
+			   <div class="ui four doubling cards" id="cardContainerGroupD" name="cardContainerGroupD">
+			   </div>
 			</div>
 		 </div>
     	   <!-- tab-->
@@ -228,7 +232,7 @@
 				  </td>
 				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
 				  <td>
-				   <a class="ui teal tag label" data-toggle="modal" data-target="#exampleModalGroup" onClick="getGroup(1)" id="aTagTeam1" name="aTagTeam1">N/A</a>
+				   <a class="ui teal tag label" data-toggle="modal" data-target="#modalMatchFixing" onClick="getGroup(1)" id="aTagTeam1" name="aTagTeam1">N/A</a>
 				  </td>
 				  <td>					
 				    <button class="ui basic button primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="getTeamDetail(1)">
@@ -369,11 +373,11 @@
 	</div>
   
   
-  	<div class="modal fade" id="exampleModalGroup" tabindex="-1" role="dialog" aria-labelledby="exampleModalGroupTitle" aria-hidden="true">
+  	<div class="modal fade" id="modalMatchFixing" tabindex="-1" role="dialog" aria-labelledby="modalMatchFixingTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLongGroupTitle">ประกบคู่แข่งขัน</h5>
+			<h5 class="modal-title" id="modalMatchFixingTitle">ประกบคู่แข่งขัน</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
@@ -394,7 +398,7 @@
 					<span class="markFont"> จะเจอกับทีมที่ต้องการ <hr/> </span>
 				  </div>
 				    <form class="ui form">
-				     <input type="hidden" name="hidBeforeChangeGroup" id="hidBeforeChangeGroup" value="" />
+				    
 				     <input type="hidden" name="hidTeamIdSource" id="hidTeamIdSource" value="" />
 					  <div class="field">
 						<select id="teamListBattle" name="teamListBattle">
@@ -415,7 +419,7 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="backToMainCard()">ย้อนกลับ</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="comfirmGroup()">ยืนยัน</button>
+			<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="comfirmMatch()">ยืนยัน</button>
 		  </div>
 		</div>
 	  </div>
@@ -517,7 +521,22 @@
 	  <script>
 
 		  function loadTeamCard(){
-			 
+			 //team color A:orange , B:green , C:purple , D:brown
+			  var clsMap = new Map();
+			  clsMap.set('A', 'ui orange card');
+			  clsMap.set('B', 'ui green card');
+			  clsMap.set('C', 'ui purple card');
+			  clsMap.set('D', 'ui brown card');
+
+			  var colourLable = new Map();
+			  colourLable.set("true", 'ui bottom left attached black label'); // ตกรอบเรียบร้อย
+			  colourLable.set("false", 'ui bottom left attached green label'); // ยังไม่ตกรอบ
+			  
+			  var cardBox ; // for set item card
+			  
+			  // clear older card in desk
+			  clearCardInDesk();
+			  
 			  console.log("filter by group state"+$("#matchRound").val());
 			  // #loadingTeamDiv
 			  $("#loadingTeamDiv").addClass("ui loading form");
@@ -530,43 +549,43 @@
 			  // mockup json obj
 			  teamObj = [
 				{
-				  "id": 1,
+				  "id": 2,
 				  "teamname": "พริกเผาหย๋อง",
-				  "sluck":"ข้อความคำโปรย",
+				  "slug":"ข้อความคำโปรย",
 				  "team_type":"อุดมศึกษา / มหาวิทยาลัย",
-			      "team_manager":"นาย xxxx yyyy , 083-xxx-8392",
+				  "detail":[{"name":"นาย xxxx yyyy","tel":"083-xxx-8392"} ],
 				  "group_state": "รอบคัดเลือก 1st",
-				  "group":"A",
+				  "group":$("#hidTabGroupActive").val(),
 				  "eliminated":"false"
 				},
 				{
-				  "id": 2,
-				  "teamname": "โบ้นก",
-				  "sluck":"ข้อความคำโปรย",
-				  "team_type":"โรงเรียน / อนุปริญญา",
-			      "team_manager":"นาย xxxx yyyy , 089-xxx-9857",
-				  "group_state": "รอบคัดเลือก 1st",
-				  "group":"A",
-				  "eliminated":"true"
-				},
-				{
 				  "id": 3,
-				  "teamname": "กูละเซง",
-				  "sluck":"ข้อความคำโปรย",
-				  "team_type":"อุดมศึกษา / มหาวิทยาลัย",
-			      "team_manager":"นาย xxxx yyyy , 085-xxx-6519",
+				  "teamname": "โบ้นก",
+				  "slug":"ข้อความคำโปรย",
+				  "team_type":"โรงเรียน / อนุปริญญา",
+				  "detail":[{"name":"นาย xxxx yyyy","tel":"089-xxx-9857"} ],
 				  "group_state": "รอบคัดเลือก 1st",
-				  "group":"A",
+				  "group":$("#hidTabGroupActive").val(),
 				  "eliminated":"false"
 				},
 				{
 				  "id": 4,
-				  "teamname": "คิวซะหั้ย",
-				  "sluck":"ข้อความคำโปรย",
-				  "team_type":"โรงเรียน / อนุปริญญา",
-			      "team_manager":"นาย xxxx yyyy , 087-xxx-9391",
+				  "teamname": "กูละเซง",
+				  "slug":"ข้อความคำโปรย",
+				  "team_type":"อุดมศึกษา / มหาวิทยาลัย",
+				  "detail":[{"name":"นาย xxxx yyyy","tel":"085-xxx-6519"} ],
 				  "group_state": "รอบคัดเลือก 1st",
-				  "group":"A",
+				  "group":$("#hidTabGroupActive").val(),
+				  "eliminated":"false"
+				},
+				{
+				  "id": 5,
+				  "teamname": "คิวซะหั้ย",
+				  "slug":"ข้อความคำโปรย",
+				  "team_type":"โรงเรียน / อนุปริญญา",
+			      "detail":[{"name":"นาย xxxx yyyy","tel":"087-xxx-9391"} ],
+				  "group_state": "รอบคัดเลือก 1st",
+				  "group":$("#hidTabGroupActive").val(),
 				  "eliminated":"true"
 				}
 		  	 ]
@@ -576,19 +595,162 @@
 				  //opt = document.createElement('option');				 
 				 	//$('<option>').val(val.id).text(" ทีม "+val.teamname).appendTo('#teamListBattle');
 				  console.log("create Card: ทีม "+val.teamname);
-				  if(val.eliminated){
+				  if(val.eliminated=="true"){
+					   console.log("ตกรอบ");
 					  // ตกรอบ
 					  /* <div class="ui raised grey card"> */ 
+
+					  ui_card = document.createElement('div'); // main target 
+					  $(ui_card).addClass("ui raised card"+clsMap.get(val.group));
+
+					  cardBox=ui_card; // assign to global var : cardBox
+					  
 				  }else{
+					   console.log("เข้ารอบ");
 					  // เข้ารอบ
 					  /* <a class="ui orange card"> */ 
+					  
+					  a_link = document.createElement('a'); // main target 
+					  $(a_link).addClass("ui card"+clsMap.get(val.group));
+					  $(a_link).attr("href","#");
+					  $(a_link).attr("data-toggle","modal");
+					  $(a_link).attr("data-target","#modalMatchFixing");
+					  $(a_link).attr("onclick","match_fixing(this)");
+					  $(a_link).attr("id",val.id);
+					  
+					  cardBox=a_link; 
 				  }
 				  
+
+					  
+					  content  = document.createElement('div');
+					  $(content).addClass("content");
+
+					  header = document.createElement('div');
+					  	$(header).addClass("header");
+				      spanMarkFont = document.createElement('span');
+					    $(spanMarkFont).addClass("markFont");
+					               
+					  
+					  
+					  divTeamNamelabel =document.createElement('div');
+					  $(divTeamNamelabel).attr("id","teamNameLabel"+val.id)
+					                     .html(val.teamname)
+					                     .appendTo($(spanMarkFont));
+					  
+					  $(spanMarkFont).appendTo($(header));
+
+					  
+					  $(header).appendTo($(content));
+					  console.log("header appendTo content "+val.teamname);
+					  
+					  //console.log($(content));
+					  
+					  meta  = document.createElement('div');
+					  $(meta).addClass("meta");
+					  
+					  spanCategory = document.createElement('span');
+					  $(spanCategory).addClass("category")
+					                 .html(val.slug);
+					  $(spanCategory).appendTo($(meta));
+					  
+					  // meta section for append to content
+					  $(meta).appendTo($(content));
+					  
+					  //description
+					  description  = document.createElement('div');
+					  $(description).addClass("description");
+					  
+					  ul = document.createElement('ul');
+					  $(ul).addClass("list");
+					  
+					   liName = document.createElement('li');
+					   $(liName).html((val.detail)[0].name+" name")
+					            .appendTo($(description));
+					  
+					   liTel = document.createElement('li');
+					   $(liTel).html((val.detail)[0].tel+" tel")
+					            .appendTo($(description));
+					  
+					  console.log("debug detail team :");
+					  console.log(val.detail);
+					  
+					  // description section for append to content
+					  $(description).appendTo($(content));
+					  
+					  //extra
+					  extra_content  = document.createElement('div');
+					  $(extra_content).addClass("extra content"); 
+					  
+					  //left floated author
+					  left_floated_author =document.createElement('div');
+					  
+					  //left_label
+					  left_label =document.createElement('div');
+					  $(left_label).addClass(colourLable.get(val.eliminated))
+					  			.html(val.group_state)
+					  			.appendTo($(left_floated_author));
+					  
+					  console.log("team eliminated value: "+val.eliminated);
+					  console.log("class team eliminated value: "+colourLable.get(val.eliminated));
+					  
+					  $(left_floated_author).appendTo($(extra_content));
+					  
+					  // right floated author
+					  right_label =document.createElement('div');
+					  $(right_label).addClass("right floated author");
+					  
+					  if(val.eliminated=="true"){
+						  $(right_label).html("ตกรอบ <i class='inverted circular frown outline icon'></i>");
+					  }else{
+						   $(right_label).html("ประกบคู่ <i class='yellow circular trophy icon'></i>");
+					  }
+					  
+					  $(right_label).appendTo($(extra_content));
+					  
+					  // content section for append
+					  $(content).appendTo($(cardBox));
+					  
+					  // extra content section for append to a class
+					  $(extra_content).appendTo($(cardBox));
+					  
+					  // final append
+					  $(cardBox).appendTo($("#cardContainerGroup"+$("#hidTabGroupActive").val()));
+
 			  }
 			  
 			  
 		  }
 		  
+		  function tabChange(tabName){
+			  // 
+			  console.log("tabChange:"+tabName);
+			  
+			  // change value activeTab
+			  
+			  $("#hidTabGroupActive").val(tabName);
+			  
+/*			  // #loadingTeamDiv
+			  $("#loadingTeamDiv").addClass("ui loading form");
+			  setTimeout(function(){ clearloadingTeamDiv(); }, 3000);
+			  
+			  //get team list for match  group state condition
+			  console.log("filter by group state"+$("#matchRound").val());
+			  group_state_filter= $("#matchRound").val();*/
+			  
+			  loadTeamCard(); //reuse
+			  	
+			  
+		  }
+		  
+		  function clearCardInDesk(){
+			  tabName=$("#hidTabGroupActive").val();
+			  
+			  console.log("clear card group :"+tabName);
+			  $("#cardContainerGroup"+tabName).html("");
+			  
+
+		  }
 		  function match_fixing(obj){
 			  
 			 //show modal to matching team
@@ -610,19 +772,19 @@
 				  "group":"A"
 				},
 				{
-				  "id": 1,
+				  "id": 2,
 				  "teamname": "โบ้นก",
 				  "current_state": 1,
 				  "group":"A"
 				},
 				{
-				  "id": 1,
+				  "id": 3,
 				  "teamname": "กูละเซง",
 				  "current_state": 1,
 				  "group":"A"
 				},
 				{
-				  "id": 1,
+				  "id": 4,
 				  "teamname": "คิวซะหั้ย",
 				  "current_state": 1,
 				  "group":"A"
@@ -794,7 +956,7 @@
 			  
 		  }
 		  
-		  function comfirmGroup(){
+		  function comfirmMatch(){
 			  
 			  // jqeury post json to provice route to update db 
 			  // check result and update GUI
@@ -807,37 +969,17 @@
 				กลุ่ม D สีน้ำตาล : ui brown tag label
 
 			  */
-			  team_id =$("#hidTeamId").val();
+			  team_id =$("#hidTeamIdSource").val();
+			  console.log("source team :"+team_id);
+	 		  
+			  destination_id =$("#teamListBattle option:selected").val();
+			  console.log("destination team :"+destination_id);
 			  
-			  var clsMap = new Map();
-				  clsMap.set('A', 'ui orange tag label');
-				  clsMap.set('B', 'ui green tag label');
-			  	  clsMap.set('C', 'ui purple tag label');
-			      clsMap.set('D', 'ui brown tag label');
-			  	  clsMap.set('N/A', 'ui teal tag label');
+			  date_battle=$("#datePicker").val();
+			  console.log("date of battle :"+date_battle);
 			  
-			  group_older =$("#hidBeforeChangeGroup").val();
-			  group = $('#group option:selected').val(); // current group selected
-			  
-			  console.log("group older : "+group_older);
-			  console.log("group :"+group);
-			  
-			  // aTagTeam+team_id
-			  
-			  $("#aTagTeam"+team_id).removeClass(clsMap.get(group_older)); // remove
-			  $("#aTagTeam"+team_id).addClass(clsMap.get(group)); //addClass
-			  
-			  console.log("debug map [get old]: "+clsMap.get(group_older));
-			  console.log("debug map [get new]: "+clsMap.get(group));
-				  
-			  // update team value in text a 
-			  $("#aTagTeam"+team_id).html(group);
-			  
-
-			  // mockup set result
-			  
-			  clearOptionSelect();
-			  console.log("confirm group");
+			  clearOptionSelectTeam();
+			  console.log("confirm match");
 		  }
 		  
 		  function clearLoading(){
