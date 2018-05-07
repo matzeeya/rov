@@ -224,7 +224,7 @@
 				  <th>VS ทีม</th>
 				  <th>รอบ</th>
 				  <th>วันที่</th>
-				  <th>Approve</th>
+				  <th>เวลา</th>
 				</tr>
 			  </thead>
 			  <tbody>
@@ -974,7 +974,7 @@
 		  }
 		  
 		  function comfirmMatch(){
-			  
+			  console.log("confirm match");
 			  // jqeury post json to provice route to update db 
 			  // check result and update GUI
 			  // clear option select in target #group
@@ -998,8 +998,71 @@
 			  currentState=$("#hidCurrentState"+team_id).val();
 			  console.log("state team source :"+currentState);
 			  
+			  appendSchedule();
+			  
+			  
 			  clearOptionSelectTeam();
-			  console.log("confirm match");
+
+			  
+
+			  
+		  }
+		  
+		  function appendSchedule(){
+			   
+			    //sent post value in backend route
+			    // update row in table #tbListSchedule
+			    // remove source and destination card 
+			  var groupMap = new Map();
+			  groupMap.set('1', 'รอบคัดเลือก 1st');
+			  groupMap.set('2', 'รอบคัดเลือก 2nd');
+			  groupMap.set('3', 'รอบคัดเลือก 3nd');
+			  groupMap.set('4', 'รอบ 4 Runner-up');
+			  
+			  
+			   objSource= $("#cardContainerGroup"+$("#hidTabGroupActive").val()).find($("#hidTeamIdSource").val());
+			   objDest= $("#cardContainerGroup"+$("#hidTabGroupActive").val()).find($("#teamListBattle option:selected").val());
+			  
+			   objSource.hide();
+			   objDest.hide();
+			  
+			   console.log("source find: "+objSource);
+			   console.log("destination find: "+objSource);
+				  
+			  	//var total_row=$("#tbListSchedule tbody").rows.length;
+			  	tr = document.createElement('tr');
+
+				td1 = document.createElement('td');	
+			    $(td1).html("*")
+			         .appendTo($(tr));
+			  	
+			    team_name =$("#divTeamSourceName").html();
+				console.log("team_source_name ="+team_name);
+			  
+			    td2 = document.createElement('td');	
+			    $(td2).html(team_name)
+			         .appendTo($(tr));
+			  	
+			    td3 = document.createElement('td');	
+			    $(td3).html($("#teamListBattle option:selected").text())
+			         .appendTo($(tr));
+			    group_state =$("#hidCurrentState"+$("#hidTeamIdSource").val()).val();	
+			    console.log("group_state ="+group_state);
+			  
+			    td4 = document.createElement('td');	
+			    $(td4).html(groupMap.get(group_state))
+			         .appendTo($(tr));
+			  	
+			    td5 = document.createElement('td');	
+			    $(td5).html($("#datePicker").val())
+			         .appendTo($(tr));
+			  	
+			    td6 = document.createElement('td');	
+			    $(td6).html("N/A")
+			         .appendTo($(tr));
+ 				$("#tbListSchedule tbody").append(tr);
+			   
+			  console.log("appendSchedule");
 		  }
 		  
 		  function clearLoading(){
