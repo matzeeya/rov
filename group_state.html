@@ -603,7 +603,7 @@
 				 	//$('<option>').val(val.id).text(" ทีม "+val.teamname).appendTo('#teamListBattle');
 				  console.log("create Card: ทีม "+val.teamname);
 				  if(val.eliminated=="true"){
-					   console.log("ตกรอบ");
+					  // console.log("ตกรอบ");
 					  // ตกรอบ
 					  /* <div class="ui raised grey card"> */ 
 
@@ -613,7 +613,7 @@
 					  cardBox=ui_card; // assign to global var : cardBox
 					  
 				  }else{
-					   console.log("เข้ารอบ");
+					   //console.log("เข้ารอบ");
 					  // เข้ารอบ
 					  /* <a class="ui orange card"> */ 
 					  
@@ -649,7 +649,7 @@
 
 					  
 					  $(header).appendTo($(content));
-					  console.log("header appendTo content "+val.teamname);
+					  //console.log("header appendTo content "+val.teamname);
 					  
 					  //console.log($(content));
 					  
@@ -679,8 +679,8 @@
 					   $(liTel).html((val.detail)[0].tel+" tel")
 					            .appendTo($(description));
 					  
-					  console.log("debug detail team :");
-					  console.log(val.detail);
+					  //console.log("debug detail team :");
+					  //console.log(val.detail);
 					  
 					  // description section for append to content
 					  $(description).appendTo($(content));
@@ -707,8 +707,8 @@
 				  	  			.appendTo($(left_floated_author));
 				  
 				  
-					  console.log("team eliminated value: "+val.eliminated);
-					  console.log("class team eliminated value: "+colourLable.get(val.eliminated));
+					  //console.log("team eliminated value: "+val.eliminated);
+					  //console.log("class team eliminated value: "+colourLable.get(val.eliminated));
 					  
 					  $(left_floated_author).appendTo($(extra_content));
 					  
@@ -783,25 +783,25 @@
 			 
 			 teamObj = [
 				{
-				  "id": 1,
+				  "id": 2,
 				  "teamname": "พริกเผาหย๋อง",
 				  "current_state": 1,
 				  "group":"A"
 				},
 				{
-				  "id": 2,
+				  "id": 3,
 				  "teamname": "โบ้นก",
 				  "current_state": 1,
 				  "group":"A"
 				},
 				{
-				  "id": 3,
+				  "id": 4,
 				  "teamname": "กูละเซง",
 				  "current_state": 1,
 				  "group":"A"
 				},
 				{
-				  "id": 4,
+				  "id": 5,
 				  "teamname": "คิวซะหั้ย",
 				  "current_state": 1,
 				  "group":"A"
@@ -815,7 +815,7 @@
 			 for(val of teamObj){
 				  //opt = document.createElement('option');				 
 				 	$('<option>').val(val.id).text(" ทีม "+val.teamname).appendTo('#teamListBattle');
-					console.log(" ทีม "+val.teamname);
+					//console.log(" ทีม "+val.teamname);
 			  }
 			  
 			  // assign team source #hidTeamIdSource
@@ -917,7 +917,7 @@
 			  	$("#loadingTeamDiv").addClass("ui loading form");
 			    setTimeout(function(){ clearloadingGroupDiv(); }, 3000);
 			   
-			  	console.log("get innerHTML tag A :"+$("#aTagTeam"+team_id).html());
+			  	//console.log("get innerHTML tag A :"+$("#aTagTeam"+team_id).html());
 			  
 			    group_code=$("#aTagTeam"+team_id).html();
 			    // set older group before change
@@ -960,11 +960,11 @@
 				  //opt = document.createElement('option');
 				  
 				  if(group_code===val.name){
-					  console.log("true "+val.name+" ("+val.current+"/"+val.maximum+")");
+					  //console.log("true "+val.name+" ("+val.current+"/"+val.maximum+")");
 					  $('<option>').val(val.name).text(" กลุ่ม "+val.name+" ("+val.current+"/"+val.maximum+")").attr('selected','selected').appendTo('#group');
 				  }else{
 					  $('<option>').val(val.name).text(" กลุ่ม "+val.name+" ("+val.current+"/"+val.maximum+")").appendTo('#group');
-					  console.log("false "+val.name+" ("+val.current+"/"+val.maximum+")");
+					  //console.log("false "+val.name+" ("+val.current+"/"+val.maximum+")");
 				  }
 				  
 			  }
@@ -987,16 +987,16 @@
 
 			  */
 			  team_id =$("#hidTeamIdSource").val();
-			  console.log("source team :"+team_id);
+			  //console.log("source team :"+team_id);
 	 		  
 			  destination_id =$("#teamListBattle option:selected").val();
-			  console.log("destination team :"+destination_id);
+			  //console.log("destination team :"+destination_id);
 			  
 			  date_battle=$("#datePicker").val();
-			  console.log("date of battle :"+date_battle);
+			  //console.log("date of battle :"+date_battle);
 			  
 			  currentState=$("#hidCurrentState"+team_id).val();
-			  console.log("state team source :"+currentState);
+			  //console.log("state team source :"+currentState);
 			  
 			  appendSchedule();
 			  
@@ -1020,14 +1020,12 @@
 			  groupMap.set('4', 'รอบ 4 Runner-up');
 			  
 			  
-			   objSource= $("#cardContainerGroup"+$("#hidTabGroupActive").val()).find($("#hidTeamIdSource").val());
-			   objDest= $("#cardContainerGroup"+$("#hidTabGroupActive").val()).find($("#teamListBattle option:selected").val());
+			   objSource= $("#"+$("#hidTeamIdSource").val());
+			   objDest= $("#"+$("#teamListBattle option:selected").val());
 			  
 			   objSource.hide();
 			   objDest.hide();
 			  
-			   console.log("source find: "+objSource);
-			   console.log("destination find: "+objSource);
 				  
 			  	//var total_row=$("#tbListSchedule tbody").rows.length;
 			  	tr = document.createElement('tr');
@@ -1037,7 +1035,7 @@
 			         .appendTo($(tr));
 			  	
 			    team_name =$("#divTeamSourceName").html();
-				console.log("team_source_name ="+team_name);
+				//console.log("team_source_name ="+team_name);
 			  
 			    td2 = document.createElement('td');	
 			    $(td2).html(team_name)
@@ -1047,7 +1045,7 @@
 			    $(td3).html($("#teamListBattle option:selected").text())
 			         .appendTo($(tr));
 			    group_state =$("#hidCurrentState"+$("#hidTeamIdSource").val()).val();	
-			    console.log("group_state ="+group_state);
+			    //console.log("group_state ="+group_state);
 			  
 			    td4 = document.createElement('td');	
 			    $(td4).html(groupMap.get(group_state))
