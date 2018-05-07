@@ -163,6 +163,7 @@
 				  <div class="extra content">
 				    <div class="left floated author">
 				    <div class="ui bottom left attached green label">รอบคัดเลือก 1st</div>
+				    <input type="hidden" name="hidCurrentState1" id="hidCurrentState1" value="1" />
 				    </div>
 					<div class="right floated author">
 					  ประกบคู่ <i class="yellow circular trophy icon"></i>
@@ -187,6 +188,7 @@
 				  <div class="extra content">
 				    <div class="left floated author">
 				    <div class="ui bottom left attached green label">รอบคัดเลือก 1st</div>
+				    <input type="hidden" name="hidCurrentState2" id="hidCurrentState2" value="1" />
 				    </div>
 					<div class="right floated author">
 					  ตกรอบ  <i class="inverted circular frown outline icon"></i>
@@ -213,14 +215,15 @@
 		 </div>
     	   <!-- tab-->
 			<div class="" id="loadingDiv">
-			 <table class="ui compact celled definition table">
+			<!--// where team in schedule table , battle_state match value default pageload such as #select matchRound-->
+			 <table class="ui compact celled definition table" id="tbListSchedule" name="tbListSchedule">
 			  <thead class="full-width">
 				<tr>
 				  <th>ลำดับ</th>
-				  <th>ชื่อทีม</th>
-				  <th>ประเภททีม</th>
-				  <th>กลุ่ม</th>
-				  <th>ผู้เล่น</th>
+				  <th>ทีม</th>
+				  <th>VS ทีม</th>
+				  <th>รอบ</th>
+				  <th>วันที่</th>
 				  <th>Approve</th>
 				</tr>
 			  </thead>
@@ -230,9 +233,9 @@
 				  <td>
 					  ยากูซ่า
 				  </td>
-				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
+				  <td>xxxx</td>
 				  <td>
-				   <a class="ui teal tag label" data-toggle="modal" data-target="#modalMatchFixing" onClick="getGroup(1)" id="aTagTeam1" name="aTagTeam1">N/A</a>
+				    รอบคัดเลือก 1st
 				  </td>
 				  <td>					
 				    <button class="ui basic button primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="getTeamDetail(1)">
@@ -249,8 +252,8 @@
 				<tr>
 			      <td>2</td>
 				  <td>พริกเผาหย๋อง</td>
-				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
-				  <td><a class="ui orange tag label"  >A</a></td>
+				  <td>xxxx</td>
+				  <td>รอบคัดเลือก 1st</td>
 				  <td>					
 				    <button class="ui basic button primary">
 					  <i class="icon calendar check outline"></i>
@@ -266,8 +269,8 @@
 				<tr>
 			      <td>3</td>
 				  <td>โบ้นก</td>
-				  <td>โรงเรียน / อนุปริญญา</td>
-				  <td><a class="ui purple tag label">C</a></td>
+				  <td>xxxx</td>
+				  <td>รอบคัดเลือก 1st</td>
 				  <td>
 				  	<button class="ui basic button primary">
 					  <i class="icon calendar check outline"></i>
@@ -283,8 +286,8 @@
 				<tr>
 			      <td>4</td>
 				  <td>กูละเซง</td>
-				  <td>อุดมศึกษา / มหาวิทยาลัย</td>
-				  <td><a class="ui orange tag label"  >A</a></td>
+				  <td>xxxx</td>
+				  <td>รอบคัดเลือก 1st</td>
 				  <td>
 				  	<button class="ui basic button primary">
 					  <i class="icon calendar check outline"></i>
@@ -300,8 +303,8 @@
 				<tr>
 			      <td>5</td>
 				  <td>คิวซะหั้ย</td>
-				  <td>โรงเรียน / อนุปริญญา</td>
-				  <td><a class="ui green tag label">B</a></td>
+				  <td>xxxx</td>
+				  <td>รอบคัดเลือก 1st</td>
 				  <td>
 				  	<button class="ui basic button primary">
 					  <i class="icon calendar check outline"></i>
@@ -555,6 +558,7 @@
 				  "team_type":"อุดมศึกษา / มหาวิทยาลัย",
 				  "detail":[{"name":"นาย xxxx yyyy","tel":"083-xxx-8392"} ],
 				  "group_state": "รอบคัดเลือก 1st",
+				  "state": 1,
 				  "group":$("#hidTabGroupActive").val(),
 				  "eliminated":"false"
 				},
@@ -565,6 +569,7 @@
 				  "team_type":"โรงเรียน / อนุปริญญา",
 				  "detail":[{"name":"นาย xxxx yyyy","tel":"089-xxx-9857"} ],
 				  "group_state": "รอบคัดเลือก 1st",
+				  "state": 1,
 				  "group":$("#hidTabGroupActive").val(),
 				  "eliminated":"false"
 				},
@@ -575,6 +580,7 @@
 				  "team_type":"อุดมศึกษา / มหาวิทยาลัย",
 				  "detail":[{"name":"นาย xxxx yyyy","tel":"085-xxx-6519"} ],
 				  "group_state": "รอบคัดเลือก 1st",
+				  "state": 1,
 				  "group":$("#hidTabGroupActive").val(),
 				  "eliminated":"false"
 				},
@@ -585,6 +591,7 @@
 				  "team_type":"โรงเรียน / อนุปริญญา",
 			      "detail":[{"name":"นาย xxxx yyyy","tel":"087-xxx-9391"} ],
 				  "group_state": "รอบคัดเลือก 1st",
+				  "state": 1,
 				  "group":$("#hidTabGroupActive").val(),
 				  "eliminated":"true"
 				}
@@ -690,7 +697,16 @@
 					  $(left_label).addClass(colourLable.get(val.eliminated))
 					  			.html(val.group_state)
 					  			.appendTo($(left_floated_author));
-					  
+				  
+				      // hidCurrentState
+					  hidState  = document.createElement('input');
+				  	  $(hidState).attr("type","hidden")
+							    .attr("id","hidCurrentState"+val.id)
+							    .attr("name","hidCurrentState"+val.id)
+							    .val(val.state)
+				  	  			.appendTo($(left_floated_author));
+				  
+				  
 					  console.log("team eliminated value: "+val.eliminated);
 					  console.log("class team eliminated value: "+colourLable.get(val.eliminated));
 					  
@@ -761,7 +777,8 @@
 			 $("#divTeamSourceName").html($("#teamNameLabel"+team_id).html());
 			 console.log("team source label name :"+$("#teamNameLabel"+team_id).html());
 
-			  // ajax send 
+			 // ajax send  filter team match condition user table: by group , current_state , eliminated = false , not include source team id
+			 // and not team in schedule table , battle_state
 			 // return value : mockup json  
 			 
 			 teamObj = [
@@ -977,6 +994,9 @@
 			  
 			  date_battle=$("#datePicker").val();
 			  console.log("date of battle :"+date_battle);
+			  
+			  currentState=$("#hidCurrentState"+team_id).val();
+			  console.log("state team source :"+currentState);
 			  
 			  clearOptionSelectTeam();
 			  console.log("confirm match");
