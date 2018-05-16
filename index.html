@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/stellar.css">
     <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/semantic.css">
     
-    
+    <link rel="stylesheet" type="text/css" href="css/modal-video.min.css">
     
   </head>
   <body>
@@ -64,7 +64,7 @@
              <h3 class="cta-heading text-white"><span class="markFont">พร้อมระเบิดสังเวียน ในรายการ 25<sup>th</sup> Faculty of Engineering Celebration</span></h3>
             <div class="cta-btn-group">
 
-              <a class="btn-video text-white" href="#"><span class="icon-rounded bordered-ios"><i class="ion-ios-play-outline"></i></span>watch tutorial</a>
+              <a class="btn-video text-white" href="#" data-video-id="yFDBWau2awc" id="btnVideoShow"><span class="icon-rounded bordered-ios"><i class="ion-ios-play-outline"></i></span>watch tutorial</a>
             </div>
             <div class="image-container text-center sm-display-none">
               <img class="img-responsive" src="images/gear-3.png" alt="" id="logo25">
@@ -563,6 +563,7 @@
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/stellar/jquery.stellar.min.js"></script>
     <script src="js/Semantic-UI-CSS/semantic.min.js"></script>
+    <script src="js/modal-video/jquery-modal-video.min.js"></script>
     
 	   <script>
 		jQuery(document).ready(function( $ ) {
@@ -578,6 +579,8 @@
 			$('.menu .item')
 			  .tab()
 			;
+			
+			$("#btnVideoShow").modalVideo();
 		});
 	  </script>
 	  
