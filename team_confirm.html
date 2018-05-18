@@ -90,14 +90,14 @@
 				<i class="ion-compose" style="font-size: 32px;"></i>&nbsp;&nbsp;
 				<div class="content">
 				  <div class="title"><span class="markFont">ลงทะเบียนทีม</span></div>
-				  <div class="description">สำรองที่นั่งในการแข่งขัน</div>
+				  <div class="description">Activate account ผ่าน email</div>
 				</div>
 			  </div>
 			  <div class="disabled step">
 				<i class="ion-information-circled" style="font-size: 32px;"></i>&nbsp;&nbsp;
 				<div class="content">
 				  <div class="title"><span class="markFont">กรอกข้อมูลสมาชิกในทีม </span></div>
-				  <div class="description">ยืนยันข้อมูล และ Activate account ผ่าน email</div>
+				  <div class="description">ใส่รายชื่อผู้ในเล่นทีม</div>
 				</div>
 			  </div>
 			  
@@ -111,18 +111,28 @@
 			</div>
           
 			 <div class="ui pointing menu">
-			  <a class="item">
+			  <div class="item">
 				Home
-			  </a>
-			  <a class="item">
+			  </div>
+			  <div class="item">
 				<span class="markFont">ลงทะเบียนทีม</span>
-			  </a>
-			  <a class="item">
+			  </div>
+			  <div class="item">
 				<span class="markFont">รายชื่อสมาชิก</span>
-			  </a>
-			  <a class="item active">
+			  </div>
+			  <div class="item active">
 				<span class="markFont">ตรวจสอบข้อมูล</span>
-			  </a>
+			  </div>
+			   <div class="right menu">
+				<a class="ui item" href="{{ route('logout') }}"  onclick="event.preventDefault();
+										 document.getElementById('logout-form').submit();">
+					<i class="icon power off"></i>
+					<span class="markFont">ออกจากระบบ</span>
+				</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					{{ csrf_field() }}
+				</form>
+               </div>
 
 			</div>
 
@@ -145,6 +155,7 @@
 						<li>ภายหลังจากนี้จะมีการนำข้อมูลไปตรวจสอบกับทาง Garana Thailand และแจ้งผลการสมัครให้ทราบทางหน้าเว็บไซต์อย่างเป็นทางการ</li>
 						<li>เราขอบคุณทุกท่านที่เข้ามามีส่วนร่วมในการแข่งขันรายการนี้ หวังเป็นอย่างยิ่งว่า ทีมนี้จะได้ของรางวัลในภายในงานแล้วเจอกัน  </li>
 						<li>โปรดติดตามข่าวสารความเคลื่อนไหวได้ที่ FB Page การจัดการแข่งขัน ,เว็บไซต์  และช่องทาง email   </li>
+						<li> เราจะประกาศผลการสมัครอย่างเป็นทางการในวันที่   </li>
 					  </ul>
 				</p>
 			  </div>
