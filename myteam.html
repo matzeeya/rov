@@ -166,7 +166,7 @@
                     
 					 <div class="field">
 							 <label>ลิงค์ Video แนะนำทีม</label>
-							 <input type="text" name="video_url" id="video_url"  value="" placeholder="Youtube , Vimeo , Facebook or other public access platform" />
+							 <input type="text" name="video_link" id="video_link"  value="" placeholder="Youtube , Vimeo , Facebook or other public access platform" />
 					 </div>
 					 
 						<div class="form-group">
@@ -323,8 +323,8 @@
 			$(".ui.form")
 				.form({
 				fields: {
-					video_url: {
-						identifier: "video_url",
+					video_link: {
+						identifier: "video_link",
 						rules: [
 							{type: 'empty', prompt: 'ระบุ ลิงค์ Youtube , Vimeo , Facebook หรือแพตฟอร์มวีดิโอที่สามารถเข้าถึงได้'}
 						]
