@@ -72,77 +72,12 @@
         <div class="ui breadcrumb">
 		  <a class="section">หน้าแรก</a>
 		  <div class="divider"> / </div>
-		  <div class="active section">ตรวจสอบข้อมูล</div>
+		  <div class="active section">ลงทะเบียนเข้าร่วมงาน</div>
        </div>
       
        <div class="row padding-top-bottom-20">
           <div class="col-md-12">
-          
-                    <div class="ui steps">
-			  <div class="step disabled">
-				<i class="ion-android-lock" style="font-size: 32px;"></i>&nbsp;&nbsp;
-				<div class="content">
-					<div class="title"><span class="markFont">นโยบายข้อมูลส่วนบุคคล</span></div>
-				  <div class="description">โปรดอ่านและยอมรับเงื่อนไข</div>
-				</div>
-			  </div>
-			  <div class="disabled step">
-				<i class="ion-compose" style="font-size: 32px;"></i>&nbsp;&nbsp;
-				<div class="content">
-				  <div class="title"><span class="markFont">ลงทะเบียนทีม</span></div>
-				  <div class="description">Activate account ผ่าน email</div>
-				</div>
-			  </div>
-			  <div class="disabled step">
-				<i class="ion-information-circled" style="font-size: 32px;"></i>&nbsp;&nbsp;
-				<div class="content">
-				  <div class="title"><span class="markFont">กรอกข้อมูลสมาชิกในทีม </span></div>
-				  <div class="description">ใส่รายชื่อผู้ในเล่นทีม</div>
-				</div>
-			  </div>
-			  
-			  <div class="active step">
-				<i class="ion-checkmark-circled" style="font-size: 32px;"></i>&nbsp;&nbsp;
-				<div class="content">
-				  <div class="title"><span class="markFont">ตรวจสอบข้อมูล</span></div>
-				  <div class="description">กับ Garana Thailand </div>
-				</div>
-			  </div>
-			</div>
-          
-			 <div class="ui pointing menu">
-			  <div class="item">
-				Home
-			  </div>
-			  <div class="item">
-				<span class="markFont">ลงทะเบียนทีม</span>
-			  </div>
-			  <div class="item">
-				<span class="markFont">รายชื่อสมาชิก</span>
-			  </div>
-			  <div class="item active">
-				<span class="markFont">ตรวจสอบข้อมูล</span>
-			  </div>
-			  <div class="item">
-				<span class="markFont">ส่งหลักฐานทีม</span>
-			  </div>
-			  <div class="item">
-				<span class="markFont">ตรวจสอบผล</span>
-			  </div>
-			   <div class="right menu">
-				<a class="ui item" href="{{ route('logout') }}"  onclick="event.preventDefault();
-										 document.getElementById('logout-form').submit();">
-					<i class="icon power off"></i>
-					<span class="markFont">ออกจากระบบ</span>
-				</a>
-				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-					{{ csrf_field() }}
-				</form>
-               </div>
 
-			</div>
-
-          
 		   </div>
 	   </div>
     </div>
@@ -151,21 +86,164 @@
 
     	<div class="ui segment">
 			<div class="ui icon green message">
-			  <i class="handshake outline icon"></i>
+			  <i class="pencil alternate icon"></i>
 			  <div class="content">
 				<div class="header">
-				 <span class="markFont"> คุณได้ลงทะเบียนสำเร็จ </span>
+				 <span class="markFont"> สิ่งที่คุณจะได้รับจากการเข้าร่วมกิจกรรมและการลงทะเบียน </span>
 				</div>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้ลงทะเบียนเข้าร่วมงาน มีโอกาศได้รับของรางวัลจากทาง Garena Thailand อธิ เสื้อ และสกินฮีโร่ พร้อมความรู้ที่ได้จาก
+<strong>โครงการฝึกอบรมเพื่อเสริมสร้างความเข้าใจในอุตสาหกรรมเกมและการแข่งขันกีฬา E-sport </strong> โดยจะมีการเสวนา 3 หัวข้อ ได้แก่ </p>
 				<p>
-					  <ul class="list">
-						<li>ภายหลังจากนี้จะมีการนำข้อมูลไปตรวจสอบกับทาง Garana Thailand ระยะเวลาประมาณ 5-7 วัน</li>
-						<li>ขั้นตอนต่อไป ทีมของคุณต้องกลับไปจัดทำ Clip Video แนะนำทีมและผู้เล่น พร้อมทั้ง Upload ลง Youtube , Facebook หรือ Platform อื่นๆ  </li>
-						<li>รายละเอียดการทำ Clip Video สามารถดูได้จาก <a href="#env">ตัวอย่างการทำ Clip Video แนะนำทีม</a>   </li>
-						<li> เราจะประกาศผลการสมัครอย่างเป็นทางการในวันที่   </li>
-					  </ul>
+					  <ol  type="1">
+						<li>อุตสาหกรรมเกมและการแข่งขัน E-sports ในปัจจุบัน</li>
+						<li>มหาวิทยาลัยกับอุตสาหกรรม/ธุรกิจเกมและการแข่งขัน E-sports  </li>
+						<li>สมดุลการใช้ชีวิตควบคู่กับกิจกรรมเกมและกีฬา E-sport</li>
+					  </ol>
 				</p>
+				<p>โดยสามารถดูกำหนดการได้ ที่นี่</p>
 			  </div>
 			</div>
+			
+		<div class="row">
+          <div class="col-md-8">
+			   <div class="panel panel-default">
+                <div class="panel-heading">Participants Register</div>
+
+                <div class="panel-body">
+                   
+                   <form class="ui form">
+                    
+					 <div class="field">
+							 <label>ชื่อทีม</label>
+							 <input type="text" name="teamname" id="teamname"  value="" placeholder="ชื่อทีมที่ใช้ในการแข่งขันไม่เกิน 3 พยางค์" />
+					 </div>
+					 
+					 <div class="field">
+							 <label>คำโปรยทีม</label>
+							 <input type="text" name="teamsluck" id="teamsluck"  value="" placeholder="พูดอะไรสักเล็กน้อย หรือคำแนะนำทีม เช่น เก่งไม่กลัว กลัวแพ้บาย..." />
+					 </div>
+
+					
+					 <div class="two fields">
+						 <div class="field">
+							 <label>ชื่อ - นามสกุล ตัวแทนทีม</label>
+							 <input type="text" name="managername" id="managername"  value="" />
+						 </div>
+						 <div class="field">
+							 <label>เบอร์โทรศัพท์มือถือ ที่ติดต่อได้</label>
+							 <input type="text" name="mobilephone" id="mobilephone"  value="" />
+						 </div>
+					 </div>
+					 <div class="two fields">
+						 <div class="field">
+							 <label>E-Mail</label>
+							 <input type="text" name="email" id="email"  value="" />
+						 </div>
+						 <div class="field">
+						 <label>ประเภททีม</label>
+						<select>
+						  <option value="undergraduate">อุดมศึกษา / มหาวิทยาลัย</option>
+						  <option value="high_school">โรงเรียน / อนุปริญญา</option>
+						</select>
+					  </div>
+					</div>
+					
+					 
+					  <div class="field">
+						 <label>สถาบันการศึกษา</label>
+						<select name="institution" id="institution">
+						  <option value="nu">มหาวิทยาลัยนเรศวร</option>
+						  <option value="psru">มหาวิทยาลัยราชภัฏพิบูลสงคราม</option>
+						</select>
+					  </div>
+					
+					
+					<div class="two fields">
+						 <div class="field">
+							 <label>รหัสผ่าน</label>
+							 <input type="password" name="password" id="password"  value="" />
+						 </div>
+						 <div class="field">
+							 <label>ยืนยันรหัสผ่านอีกครั้ง</label>
+							 <input type="password" name="password-confirm" id="password-confirm"  value="" />
+						 </div>
+					 </div>
+
+						<div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    ลงทะเบียน
+                                </button>
+                            </div>
+                        </div>
+                       <div class="row">
+						  <div class="col-md-12">
+							<div class="ui error message"></div> 
+						</div>
+					  </div>
+					</form>
+                </div>
+            </div>
+            
+	        </div>
+	          <div class="col-md-4">
+	           <div class="ui card">
+				  <div class="ui move reveal image">
+					<img src="images/T-Shirt_front.png" class="visible content">
+					<img src="images/T-Shirt_back.png" class="hidden content">
+				  </div>
+				  <div class="content">
+					  <a class="header"><span class="markFont">ของรางวัลภายในงาน</span></a>
+					<div class="meta">
+					  <span class="date">สนับสนุนโดย Garena Thailand</span>
+					</div>
+				  </div>
+				  <div class="extra content">
+					  <p>
+					  <i class="gift icon orange"></i>
+					  เสื้อ 5 รางวัล *
+					  </p>
+					  <p>
+					  <i class="chess queen icon purple"></i>
+					  สกินฮีโร่ 10 รางวัล *
+					  </p>
+				  </div>
+				  <div class="extra content">
+					  <span style="color: green">*สำหรับผู้เข้าร่วมงานที่ลงทะเบียนและมาร่วมงานในวันที่ 17 สิงหาคม 2561</span>
+				  </div>
+				</div>
+
+				<div class="ui special cards">
+				  <div class="card">
+					<div class="blurring dimmable image">
+					  <div class="ui inverted dimmer">
+						<div class="content">
+						  <div class="center">
+							<div class="ui primary button">ส่งทีมเข้าร่วมแข่งขัน</div>
+						  </div>
+						</div>
+					  </div>
+					  <img src="images/coupon.png">
+					</div>
+					<div class="content">
+					  <a class="header"><span class="markFont">รางวัลในการแข่งขันรอบสุดท้าย</span></a>
+					  <div class="meta">
+						<span class="date">สนับสนุนโดย Garena Thailand</span>
+					  </div>
+					</div>
+					<div class="extra content">
+					  
+						
+						<p><i class="trophy icon yellow"></i>อันดับ 1 ได้รับ 500 คูปอง/คน +สกิน</p>
+						<p><i class="trophy icon grey"></i>อันดับ 2 ได้รับ 300 คูปอง/คน +สกิน</p>
+						<p><i class="trophy icon brown"></i>อันดับ 3 ได้รับ 100 คูปอง/คน</p>
+					  
+					</div>
+				  </div>
+				</div>
+			  </div>
+           </div>		
+			
 		</div>
    </div>
    
@@ -348,36 +426,28 @@
 		 jQuery(document).ready(function( $ ) {
 			
  		
-			 
 			 var minPasswordLength = 6;
-			 
 			$(".ui.form")
 				.form({
 				fields: {
-					firstname: {
-						identifier: "firstname",
+					teamname: {
+						identifier: "teamname",
 						rules: [
-							{type: 'empty', prompt: 'ระบุชื่อ'}
+							{type: 'empty', prompt: 'ระบุชื่อทีมที่ใช้ในการแข่งขัน 3 พยางค์ หากตั้งเกิน ทีมงานขอสงวนสิทธิในการเปลี่ยนแปลงชื่อโดยไม่แจ้งให้ทราบล่วงหน้า'}
 						]
 					}
 					,
-					lastname: {
-						identifier: "lastname",
+					teamsluck: {
+						identifier: "teamsluck",
 						rules: [
-							{type: 'empty', prompt: 'ระบุนามสกุล'}
+							{type: 'empty', prompt: 'พูดอะไรสักเล็กน้อย'}
 						]
-					},
-					faculty: {
-						identifier: "faculty",
+					}
+					,
+					managername: {
+						identifier: "managername",
 						rules: [
-							{type: 'empty', prompt: 'ระบุคณะ'}
-						]
-					},
-					
-					studentid: {
-						identifier: "studentid",
-						rules: [
-							{type: 'empty', prompt: 'ระบุรหัสนิสิต/นักศึกษา'}
+							{type: 'empty', prompt: 'ระบุชื่อ-นามสกุลจริง กรณีได้รับรางวัล หากชื่อไม่ตรงกับบัตรประชาชน ทีมงานขอสงวนสิทธิให้ทีมอื่น'}
 						]
 					},
 					mobilephone: {
@@ -385,28 +455,36 @@
 						rules: [
 							{
 							type: 'regExp[/[0]{1}[0-9]{9,}/]',
-							prompt: 'หมายเลขโทรศัพท์ 10 หลัก ตัวอย่าง 085xx01234'
+							prompt: 'หมายเลขโทรศัพท์ 10 หลัก ตัวอย่าง 085xxyyyyy'
 							}
 						]},
-					gameid: {
-					  identifier: 'gameid',
+					email: {
+					  identifier: 'email',
 					  rules: [
 						{
-						  type: 'empty',
-						  prompt: 'โปรดระบุ id ในเกม ROV ที่ใช้ในการแข่งขัน'
+						  type: 'email',
+						  prompt: 'โปรดระบุ e-mail ที่สามารถติดต่อได้'
 						}
 					  ]
 					},
-					hidGameId: {
-					  identifier: 'hidGameId',
+					password: {
+					  identifier: 'password',
 					  rules: [
 						{
-						  type: 'empty',
-						  prompt: 'โปรดระบุ id ในเกม ROV ที่สามารถใช้ได้'
+						  type: 'length[' + minPasswordLength + ']',
+						  prompt: 'รหัสผ่านต้องมีความยาวอย่างน้อย '+minPasswordLength+' ตัวอักษร'
 						}
 					  ]
 					},
-
+					passwordConfirm: {
+					  identifier: 'password-confirm',
+					  rules: [
+						{
+						  type: 'match[password]',
+						  prompt: 'โปรดระบุรหัสผ่านให้เหมือนกัน'
+						}
+					  ]
+					},
 					
 				},
 				
@@ -416,6 +494,9 @@
 				}
 			});
 		
+			$('.special.cards .image').dimmer({
+			  on: 'hover'
+			});
 
 			 
 		 });
