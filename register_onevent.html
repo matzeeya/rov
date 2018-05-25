@@ -113,61 +113,56 @@
                    
                    <form class="ui form">
                     
-					 <div class="field">
-							 <label>ชื่อทีม</label>
-							 <input type="text" name="teamname" id="teamname"  value="" placeholder="ชื่อทีมที่ใช้ในการแข่งขันไม่เกิน 3 พยางค์" />
+						<div class="three fields">
+						 <div class="field">
+							 <label >ชื่อ </label>
+							 <input type="text" name="firstname" id="firstname"  value="" />
+						 </div>
+						 <div class="field">
+							 <label >นามสกุล</label>
+							 <input type="text" name="lastname" id="lastname"  value="" />
+						 </div>
+						 <div class="field">
+							 <label >รหัสนิสิต</label>
+							 <input type="text" name="studentid" id="studentid"  value="" />
+						 </div>
 					 </div>
-					 
-					 <div class="field">
-							 <label>คำโปรยทีม</label>
-							 <input type="text" name="teamsluck" id="teamsluck"  value="" placeholder="พูดอะไรสักเล็กน้อย หรือคำแนะนำทีม เช่น เก่งไม่กลัว กลัวแพ้บาย..." />
-					 </div>
-
 					
 					 <div class="two fields">
 						 <div class="field">
-							 <label>ชื่อ - นามสกุล ตัวแทนทีม</label>
-							 <input type="text" name="managername" id="managername"  value="" />
+							 <label >สาขาวิชา</label>
+						 <select  id="major" name="major">
+						  <option value="CPE">วิศวกรรมโยธา</option>
+						  <option value="ENVI">วิศวกรรมสิ่งแวดล้อม</option>
+						  <option value="MEM">วิศวกรรมวัสดุ</option>
+						  <option value="IE">วิศวกรรมเครื่องกล</option>
+						  <option value="ME">วิศวกรรมอุตสาหการ</option>
+						  <option value="CHEM">วิศวกรรมเคมี</option>
+						  <option value="EE">วิศวกรรมไฟฟ้า</option>
+						  <option value="CPE">วิศวกรรมคอมพิวเตอร์</option>
+	
+						</select>
 						 </div>
 						 <div class="field">
-							 <label>เบอร์โทรศัพท์มือถือ ที่ติดต่อได้</label>
-							 <input type="text" name="mobilephone" id="mobilephone"  value="" />
+							 <label >GEAR</label>
+							<select id="gear" name="gear" >
+							</select>
 						 </div>
 					 </div>
 					 <div class="two fields">
 						 <div class="field">
-							 <label>E-Mail</label>
+							 <label >E-Mail</label>
 							 <input type="text" name="email" id="email"  value="" />
 						 </div>
-						 <div class="field">
-						 <label>ประเภททีม</label>
-						<select>
-						  <option value="undergraduate">อุดมศึกษา / มหาวิทยาลัย</option>
-						  <option value="high_school">โรงเรียน / อนุปริญญา</option>
-						</select>
-					  </div>
+						  <div class="field">
+							 <label >ประเภทสมาชิก</label>
+							<select name="membertype" id="membertype" >
+							  <option value="2">สามัญ (ค่าบำรุงตลอดชีพ 500 บาท)</option>
+							  <option value="1">วิสามัญ (ค่าบำรุงตลอดชีพ 400 บาท)</option>
+							  <option value="0">ยุวสมาชิก (ค่าสมัคร 100 บาท)</option>
+							</select>
+						  </div>
 					</div>
-					
-					 
-					  <div class="field">
-						 <label>สถาบันการศึกษา</label>
-						<select name="institution" id="institution">
-						  <option value="nu">มหาวิทยาลัยนเรศวร</option>
-						  <option value="psru">มหาวิทยาลัยราชภัฏพิบูลสงคราม</option>
-						</select>
-					  </div>
-					
-					
-					<div class="two fields">
-						 <div class="field">
-							 <label>รหัสผ่าน</label>
-							 <input type="password" name="password" id="password"  value="" />
-						 </div>
-						 <div class="field">
-							 <label>ยืนยันรหัสผ่านอีกครั้ง</label>
-							 <input type="password" name="password-confirm" id="password-confirm"  value="" />
-						 </div>
-					 </div>
 
 						<div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
