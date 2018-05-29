@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/stellar.css">
     <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/semantic.css">
 <!--    <link rel="stylesheet" type="text/css" href="js/Semantic-UI-CSS/UI-Modal/modal.min.css">-->
-    
+
     
   </head>
   <body>
@@ -65,159 +65,114 @@
     <section id="formUI" class="newsletter">
     
     
+
+   
     <div class="container">
       
         <div class="ui breadcrumb">
 		  <a class="section">หน้าแรก</a>
 		  <div class="divider"> / </div>
-		  <div class="active section">ลงทะเบียนการร่วมแข่งขัน</div>
+		  <div class="active section">ส่งหลักฐานทีม</div>
        </div>
       
        <div class="row padding-top-bottom-20">
           <div class="col-md-12">
           
-          <div class="ui steps">
-			  <div class="step disabled">
-				<i class="ion-android-lock" style="font-size: 32px;"></i>&nbsp;&nbsp;
-				<div class="content">
-					<div class="title"><span class="markFont">นโยบายข้อมูลส่วนบุคคล</span></div>
-				  <div class="description">โปรดอ่านและยอมรับเงื่อนไข</div>
-				</div>
-			  </div>
-			  <div class="active step">
-				<i class="ion-compose" style="font-size: 32px;"></i>&nbsp;&nbsp;
-				<div class="content">
-				  <div class="title"><span class="markFont">ลงทะเบียนทีม</span></div>
-				  <div class="description">สำรองที่นั่งในการแข่งขัน</div>
-				</div>
-			  </div>
-			  <div class="disabled step">
-				<i class="ion-information-circled" style="font-size: 32px;"></i>&nbsp;&nbsp;
-				<div class="content">
-				  <div class="title"><span class="markFont">กรอกข้อมูลสมาชิกในทีม</span></div>
-				  <div class="description">ยืนยันข้อมูล และ Activate account ผ่าน email</div>
-				</div>
-			  </div>
+             <div class="ui steps">
+             
 			  
-			  <div class="disabled step">
-				<i class="ion-checkmark-circled" style="font-size: 32px;"></i>&nbsp;&nbsp;
+			  <div class="active step">
+				<i class="camera icon" style="font-size: 32px;"></i>&nbsp;&nbsp;
 				<div class="content">
-				  <div class="title"><span class="markFont">ตรวจสอบข้อมูล</span></div>
-				  <div class="description">กับ Garana Thailand </div>
+					<div class="title"><span class="markFont">ส่งหลักฐานทีม</span></div>
+				  <div class="description">ลิงค์ Video แนะนำทีม </div>
 				</div>
 			  </div>
+			  <div class="disabled step">
+				<i class="certificate icon" style="font-size: 32px;"></i>&nbsp;&nbsp;
+				<div class="content">
+				  <div class="title"><span class="markFont">ประกาศผลการสมัคร</span></div>
+				  <div class="description">ภายใน 3 วัน ที่ส่งหลักฐาน </div>
+				</div>
+			  </div>			  
+
 			</div>
+          
+			 <div class="ui pointing menu">
+			  <div class="item">
+				Home
+			  </div>
+			  <div class="item active">
+				<span class="markFont">ส่งหลักฐานทีม</span>
+			  </div>
+			  <div class="item">
+				<span class="markFont">ตรวจสอบผล</span>
+			  </div>
+
+			   <div class="right menu">
+				<a class="ui item" href="{{ route('logout') }}"  onclick="event.preventDefault();
+										 document.getElementById('logout-form').submit();">
+					<i class="icon power off"></i>
+					<span class="markFont">ออกจากระบบ</span>
+				</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					{{ csrf_field() }}
+				</form>
+               </div>
+
+			</div>
+
           
 		   </div>
 	   </div>
     </div>
     
-   <div class="container padding-top-bottom-20">
-       <div class="row">
-          <div class="col-md-1">
-		   </div>
-          <div class="col-md-10">
-          
-			  <h2 class="ui header">
-			  <div class="content">
-				<span class="markFont">ลงทะเบียนทีม</span>
-			  </div>
-			  </h2>
-			
-			 <div class="row">
-				  <div class="col-sm-12">
-
-					  <div class="ui floating message">
-						<button class="ui green button">ลงทะเบียน ผ่าน e-mail</button>
-				        <span class="markFont">หรือ</span>
-					    <button class="ui facebook button">
-						  <i class="facebook icon"></i>
-						  เชื่อมต่อ กับ Facebook
-						</button>
-						
-						<button class="ui google plus button">
-						  <i class="google plus icon"></i>
-						  เชื่อมต่อ กับ Google Plus
-						</button>
-					  </div>
-				  </div>
-		      </div>
-		    </div>
-		   <div class="col-md-1">
-		   </div>
-		   
-	   </div>
-	 </div>
-   
     <div class="container">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+
+    		<div class="ui icon green message">
+			  <i class="chess knight icon"></i>
+			  <div class="content">
+				<div class="header">
+				 <span class="markFont"> ทีม :</span>
+				  <br/><span class="markFont"> สถาบันการศึกษา :</span>
+				</div>
+				<p>Get the best news in your e-mail every day.</p>
+				<p>ข้อมูลผู้ติดต่อของทีม </p>
+			  </div>
+			</div>
+    	
+    	<div class="ui segment">
+			<div class="ui icon yellow message">
+			  <i class="video icon"></i>
+			  <div class="content">
+				<div class="header">
+				 <span class="markFont"> เราต้องการหลักฐานสำหรับการตรวจสอบการมีตัวตนของสมาชิกทุกคนในทีมคุณ </span>
+				</div>
+				<p>
+					  <ul class="list">
+						<li>ลิงค์ Video แนะนำทีม</li>
+					  </ul>
+				</p>
+				<p>คุณสามารถจัดทำ Clip Video การแนะนำทีม โดยสามารถอ่านข้อกำหนดการจัดทำได้ที่  env </p>
+			  </div>
+			</div>
+			
+			
+			  <div class="panel panel-default">
 
                 <div class="panel-body">
                    
                    <form class="ui form">
                     
 					 <div class="field">
-							 <label>ชื่อทีม</label>
-							 <input type="text" name="teamname" id="teamname"  value="" placeholder="ชื่อทีมที่ใช้ในการแข่งขันไม่เกิน 3 พยางค์" />
+							 <label>ลิงค์ Video แนะนำทีม</label>
+							 <input type="text" name="video_link" id="video_link"  value="" placeholder="Youtube , Vimeo , Facebook or other public access platform" />
 					 </div>
 					 
-					 <div class="field">
-							 <label>คำโปรยทีม</label>
-							 <input type="text" name="teamsluck" id="teamsluck"  value="" placeholder="พูดอะไรสักเล็กน้อย หรือคำแนะนำทีม เช่น เก่งไม่กลัว กลัวแพ้บาย..." />
-					 </div>
-
-					
-					 <div class="two fields">
-						 <div class="field">
-							 <label>ชื่อ - นามสกุล ตัวแทนทีม</label>
-							 <input type="text" name="managername" id="managername"  value="" />
-						 </div>
-						 <div class="field">
-							 <label>เบอร์โทรศัพท์มือถือ ที่ติดต่อได้</label>
-							 <input type="text" name="mobilephone" id="mobilephone"  value="" />
-						 </div>
-					 </div>
-					 <div class="two fields">
-						 <div class="field">
-							 <label>E-Mail</label>
-							 <input type="text" name="email" id="email"  value="" />
-						 </div>
-						 <div class="field">
-						 <label>ประเภททีม</label>
-						<select>
-						  <option value="undergraduate">อุดมศึกษา / มหาวิทยาลัย</option>
-						  <option value="high_school">โรงเรียน / อนุปริญญา</option>
-						</select>
-					  </div>
-					</div>
-					
-					 
-					  <div class="field">
-						 <label>สถาบันการศึกษา</label>
-						<select name="institution" id="institution">
-						  <option value="nu">มหาวิทยาลัยนเรศวร</option>
-						  <option value="psru">มหาวิทยาลัยราชภัฏพิบูลสงคราม</option>
-						</select>
-					  </div>
-					
-					
-					<div class="two fields">
-						 <div class="field">
-							 <label>รหัสผ่าน</label>
-							 <input type="password" name="password" id="password"  value="" />
-						 </div>
-						 <div class="field">
-							 <label>ยืนยันรหัสผ่านอีกครั้ง</label>
-							 <input type="password" name="password-confirm" id="password-confirm"  value="" />
-						 </div>
-					 </div>
-
 						<div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    ลงทะเบียน
+                                    ยืนยันข้อมูล
                                 </button>
                             </div>
                         </div>
@@ -229,12 +184,42 @@
 					</form>
                 </div>
             </div>
-        </div>
-    </div>
+		
+		</div>
+   </div>
    
-    
-    
-   
+
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle">คุณยืนยันที่จะส่งทีมเข้าแข่งขันตามข้อมูลข้างต้นนี้ </h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<div class="ui red message">
+			  <div class="header">
+				<span class="markFont"> คุณรับรู้และรับทราบเกี่ยวกับกฏกติกาการแข่งขันและขอยอมรับว่าความข้อมูลที่ได้บันทึกและได้ลงทะเบียนเป็นข้อมูลจริง</span>
+			  </div>
+			  <ul class="list">
+				<li>หากทีมงานตรวจสอบพบว่ามีข้อมูลบางส่วนเป็นข้อมูลเท็จ ทางเราของสงวนสิทธิในการยกเลิกสิทธิการเข้าร่วมการแข่งขันของทีมนี้และสมาชิกทุกคนภายในทีม</li>
+				<li>ในระหว่างดำเนินการแข่งขัน หากมีข้อโต้แย้งกันระหว่างทีม หรือทีมใดทีมหนึ่งมีข้อพิพาษหรือทำผิดกติกา คำวินิจฉัยของคณะกรรมการจัดการแข่งขันถือเป็นที่สิ้นสุด</li>
+			  </ul>
+
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">ย้อนกลับ</button>
+			<button type="button" class="btn btn-primary">ยืนยันการลงทะเบียนทีม</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+   <!-- Modal -->
     </section>
     
     
@@ -267,6 +252,7 @@
                     <a href="#" class="list-group-item"><i class="ion-person-add" style="font-size: 30px;"></i>&nbsp;<span class="markFont">ลงทะเบียนเข้าร่วมงาน</span></a>
                     <a href="#" class="list-group-item"><i class="ion-pin" style="font-size: 30px;"></i>&nbsp;<span class="markFont">ลงทะเบียนการเป็นผู้สนับสนุน</span></a>
                     <a href="#" class="list-group-item"><i class="ion-chatbubbles" style="font-size: 30px;"></i>&nbsp;<span class="markFont">คำถามที่ถามบ่อย</span></a>
+                    <a href="#" class="list-group-item"><i class="chess knight icon" style="font-size: 30px;"></i><span class="markFont">จัดการข้อมูลทีม</span></a>
                   </div>
                 </div>
               </div>
@@ -321,82 +307,28 @@
 
     <script src="js/stellar/jquery.stellar.min.js"></script>
     <script src="js/Semantic-UI-CSS/semantic.min.js"></script>
-<!--    <script src="js/Semantic-UI-CSS/UI-Modal/modal.min.js"></script>-->
+    <script src="js/Semantic-UI-CSS/UI-Modal/modal.min.js"></script>
 
-	  
 	  <script>
-/*		$( "#btnOK" ).click(function() {
-			$(".test").modal('show');
-		});
+
 		  
-		$(".test").modal({
-			closable: true,
-			autofocus: true,
-			offset:50
-		});
-		  */
+
 		  
+	  </script>
+	  <script>
+
 		 jQuery(document).ready(function( $ ) {
-			 var minPasswordLength = 6;
+			
+			 
 			$(".ui.form")
 				.form({
 				fields: {
-					teamname: {
-						identifier: "teamname",
+					video_link: {
+						identifier: "video_link",
 						rules: [
-							{type: 'empty', prompt: 'ระบุชื่อทีมที่ใช้ในการแข่งขัน 3 พยางค์ หากตั้งเกิน ทีมงานขอสงวนสิทธิในการเปลี่ยนแปลงชื่อโดยไม่แจ้งให้ทราบล่วงหน้า'}
+							{type: 'empty', prompt: 'ระบุ ลิงค์ Youtube , Vimeo , Facebook หรือแพตฟอร์มวีดิโอที่สามารถเข้าถึงได้'}
 						]
 					}
-					,
-					teamsluck: {
-						identifier: "teamsluck",
-						rules: [
-							{type: 'empty', prompt: 'พูดอะไรสักเล็กน้อย'}
-						]
-					}
-					,
-					managername: {
-						identifier: "managername",
-						rules: [
-							{type: 'empty', prompt: 'ระบุชื่อ-นามสกุลจริง กรณีได้รับรางวัล หากชื่อไม่ตรงกับบัตรประชาชน ทีมงานขอสงวนสิทธิให้ทีมอื่น'}
-						]
-					},
-					mobilephone: {
-						identifier: 'mobilephone',
-						rules: [
-							{
-							type: 'regExp[/[0]{1}[0-9]{9,}/]',
-							prompt: 'หมายเลขโทรศัพท์ 10 หลัก ตัวอย่าง 085xxyyyyy'
-							}
-						]},
-					email: {
-					  identifier: 'email',
-					  rules: [
-						{
-						  type: 'email',
-						  prompt: 'โปรดระบุ e-mail ที่สามารถติดต่อได้'
-						}
-					  ]
-					},
-					password: {
-					  identifier: 'password',
-					  rules: [
-						{
-						  type: 'length[' + minPasswordLength + ']',
-						  prompt: 'รหัสผ่านต้องมีความยาวอย่างน้อย '+minPasswordLength+' ตัวอักษร'
-						}
-					  ]
-					},
-					passwordConfirm: {
-					  identifier: 'password-confirm',
-					  rules: [
-						{
-						  type: 'match[password]',
-						  prompt: 'โปรดระบุรหัสผ่านให้เหมือนกัน'
-						}
-					  ]
-					},
-					
 				},
 				
 				inline: true,
@@ -405,6 +337,8 @@
 				}
 			});
 		
+
+			 
 		 });
 
 	 </script>

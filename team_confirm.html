@@ -90,14 +90,14 @@
 				<i class="ion-compose" style="font-size: 32px;"></i>&nbsp;&nbsp;
 				<div class="content">
 				  <div class="title"><span class="markFont">ลงทะเบียนทีม</span></div>
-				  <div class="description">สำรองที่นั่งในการแข่งขัน</div>
+				  <div class="description">Activate account ผ่าน email</div>
 				</div>
 			  </div>
 			  <div class="disabled step">
 				<i class="ion-information-circled" style="font-size: 32px;"></i>&nbsp;&nbsp;
 				<div class="content">
 				  <div class="title"><span class="markFont">กรอกข้อมูลสมาชิกในทีม </span></div>
-				  <div class="description">ยืนยันข้อมูล และ Activate account ผ่าน email</div>
+				  <div class="description">ใส่รายชื่อผู้ในเล่นทีม</div>
 				</div>
 			  </div>
 			  
@@ -111,18 +111,34 @@
 			</div>
           
 			 <div class="ui pointing menu">
-			  <a class="item">
+			  <div class="item">
 				Home
-			  </a>
-			  <a class="item">
+			  </div>
+			  <div class="item">
 				<span class="markFont">ลงทะเบียนทีม</span>
-			  </a>
-			  <a class="item">
+			  </div>
+			  <div class="item">
 				<span class="markFont">รายชื่อสมาชิก</span>
-			  </a>
-			  <a class="item active">
+			  </div>
+			  <div class="item active">
 				<span class="markFont">ตรวจสอบข้อมูล</span>
-			  </a>
+			  </div>
+			  <div class="item">
+				<span class="markFont">ส่งหลักฐานทีม</span>
+			  </div>
+			  <div class="item">
+				<span class="markFont">ตรวจสอบผล</span>
+			  </div>
+			   <div class="right menu">
+				<a class="ui item" href="{{ route('logout') }}"  onclick="event.preventDefault();
+										 document.getElementById('logout-form').submit();">
+					<i class="icon power off"></i>
+					<span class="markFont">ออกจากระบบ</span>
+				</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					{{ csrf_field() }}
+				</form>
+               </div>
 
 			</div>
 
@@ -142,9 +158,27 @@
 				</div>
 				<p>
 					  <ul class="list">
-						<li>ภายหลังจากนี้จะมีการนำข้อมูลไปตรวจสอบกับทาง Garana Thailand และแจ้งผลการสมัครให้ทราบทางหน้าเว็บไซต์อย่างเป็นทางการ</li>
-						<li>เราขอบคุณทุกท่านที่เข้ามามีส่วนร่วมในการแข่งขันรายการนี้ หวังเป็นอย่างยิ่งว่า ทีมนี้จะได้ของรางวัลในภายในงานแล้วเจอกัน  </li>
-						<li>โปรดติดตามข่าวสารความเคลื่อนไหวได้ที่ FB Page การจัดการแข่งขัน ,เว็บไซต์  และช่องทาง email   </li>
+						<li>ภายหลังจากนี้จะมีการนำข้อมูลไปตรวจสอบกับทาง Garana Thailand ระยะเวลาประมาณ 5-7 วัน</li>
+						<li>ขั้นตอนต่อไป ทีมของคุณต้องกลับไปจัดทำ Clip Video แนะนำทีมและผู้เล่น พร้อมทั้ง Upload ลง Youtube , Facebook หรือ Platform อื่นๆ  </li>
+						<li>รายละเอียดการทำ Clip Video สามารถดูได้จาก <a href="#env">ตัวอย่างการทำ Clip Video แนะนำทีม</a>   </li>
+						<li> เราจะประกาศผลการสมัครอย่างเป็นทางการในวันที่   </li>
+					  </ul>
+				</p>
+			  </div>
+			</div>
+		</div>
+		
+		 <div class="ui segment">
+			<div class="ui icon yellow message">
+			  <i class="hourglass end icon"></i>
+			  <div class="content">
+				<div class="header">
+				 <span class="markFont"> หมดเวลาการส่งหลักฐาน </span>
+				</div>
+				<p>
+					  <ul class="list">
+						<li>คุณสามารถตรวจสอบผลการสมัครได้ที่นี่ <a href="#env">ตรวจสอบผลการสมัคร</a>   </li>
+	
 					  </ul>
 				</p>
 			  </div>
