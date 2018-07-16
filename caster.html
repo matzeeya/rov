@@ -590,6 +590,7 @@
     <script src="js/stellar/jquery.stellar.min.js"></script>
     <script src="js/Semantic-UI-CSS/semantic.min.js"></script>
     <script src="js/Semantic-UI-CSS/UI-Modal/modal.min.js"></script>
+       <script src="js/jquery.counterup.min.js"></script>
 
 	  <script>
 
@@ -601,6 +602,11 @@
 			
 			$('.special.cards .image').dimmer({
 			  on: 'hover'
+			});
+			 
+			$('.counter').counterUp({
+				delay: 10,
+				time: 1500
 			});
 			 
 		 });
